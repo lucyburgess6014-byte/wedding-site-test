@@ -210,13 +210,35 @@ p, li { line-height: 1.7; }
 .group-dropdown summary:hover { background: rgba(75,0,31,0.05); }
 .group-body { padding: 4px 14px 14px; border-top: 1px solid rgba(75,0,31,0.12); }
 .group-trip { margin-top: 12px; border-radius: 10px; overflow: hidden; background: rgba(75,0,31,0.05); border: 1px solid rgba(75,0,31,0.12); }
-#things .group-trip .things-activity-img { display: block; width: 100%; height: min(180px, 42vw); object-fit: cover; }
+#things .group-trip .things-activity-img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover; object-position: center; }
+.group-tab-text { display: flex; flex-direction: column; line-height: 1.25; }
+.group-tab-date { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.group-tab-title { font-size: 1.08rem; font-weight: 600; }
 #things .group-trip .things-activity-body { padding: 0.9rem 1rem; }
 #things .group-trip .things-activity-body > strong { display: block; margin-bottom: 0.4rem; }
 #things .group-trip .things-activity-body p { margin: 0.4rem 0 0; }
 .group-note { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(201,162,39,0.08); border-radius: 0 8px 8px 0; font-size: 0.9rem; line-height: 1.6; }
 .group-note p { margin: 0 0 0.5rem; }
 .group-note p:last-child { margin-bottom: 0; }
+
+/* ── MAPS HINT DIVIDER ── */
+.rec-tap { display: flex; align-items: center; gap: 10px; margin: 1.75rem 0 1rem; color: var(--cream); }
+.rec-tap-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(201,162,39,0.7)); }
+.rec-tap-line:last-child { background: linear-gradient(to left, transparent, rgba(201,162,39,0.7)); }
+.rec-tap-pin { color: var(--gold); flex-shrink: 0; }
+.rec-tap-text { font-style: italic; font-size: clamp(0.88rem, 2.4vw, 1rem); letter-spacing: 0.03em; opacity: 0.9; text-align: center; }
+
+/* ── RECOMMENDATIONS CARD (intro + drop-downs in one card) ── */
+.rec-card { background: var(--cream); color: var(--wine); border-radius: 14px; padding: 1.25rem 1.5rem 1.4rem; margin-bottom: 1.25rem; text-align: center; }
+.rec-card .group-title { margin-bottom: 0.6rem; }
+.rec-card .rec-tap { color: var(--wine); margin: 1.1rem 0 0.9rem; }
+.rec-card .rec-tap-text { opacity: 0.75; }
+.rec-card .rec-dropdown { text-align: left; border: 1px solid rgba(75,0,31,0.2); margin-bottom: 0.55rem; }
+.rec-card .rec-dropdown:last-child { margin-bottom: 0; }
+.rec-card .rec-dropdown summary:hover { background: rgba(75,0,31,0.05); }
+.rec-card .rec-dropdown[open] summary { border-bottom: 1px solid rgba(75,0,31,0.12); }
+.rec-card .rec-dropdown .rec-body, .rec-card .rec-dropdown .rec-card-body { padding-top: 12px; }
+@media (max-width: 480px) { .rec-card { padding: 1.1rem 1rem 1.2rem; } }
 
 /* ── STORY ── */
 #story { max-width: 1040px; }
@@ -888,7 +910,7 @@ details[open] > summary .faq-chevron {
       <details class="group-dropdown">
         <summary>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span data-i18n="things_m14">Wednesday, July 14</span>
+          <span class="group-tab-text"><span class="group-tab-date" data-i18n="things_m14">Wednesday, July 14</span><span class="group-tab-title" data-i18n="things_t14">Cantacuzino Castle (Nevermore Academy)</span></span>
           <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </summary>
         <div class="group-body">
@@ -915,7 +937,7 @@ details[open] > summary .faq-chevron {
       <details class="group-dropdown" style="margin-top:10px;">
         <summary>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span data-i18n="things_m15">Thursday, July 15</span>
+          <span class="group-tab-text"><span class="group-tab-date" data-i18n="things_m15">Thursday, July 15</span><span class="group-tab-title" data-i18n="things_t15">Bran Castle (Dracula Castle)</span></span>
           <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </summary>
         <div class="group-body">
@@ -942,12 +964,17 @@ details[open] > summary .faq-chevron {
     <script>if (SHOW_ACTIVITIES) document.getElementById('activities-block').style.display = '';</script>
 
     <!-- Intro card -->
-    <div style="background:var(--cream); border:none; border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.25rem; text-align:center; color:var(--wine);">
+    <div class="rec-card">
+      <p class="group-title" data-i18n="rec_title">General Recommendations</p>
       <p style="font-size:clamp(1.1rem,3vw,1.3rem); font-weight:600; margin:0 0 0.6rem; line-height:1.4; font-family:'Cormorant Garamond',Georgia,serif; color:var(--wine);" data-i18n="things_sub">We know many of you are traveling a great distance to be at our wedding and we could not be more thankful!</p>
       <p style="font-size:0.95rem; opacity:0.8; margin:0; line-height:1.65; color:var(--wine);" data-i18n-html="things_sub2">To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.</p>
-    </div>
 
-    <p style="font-size:0.78rem; opacity:0.5; margin:0 0 0.85rem; text-align:center; letter-spacing:0.04em;" data-i18n="rec_tap">Tap any place to open in Google Maps</p>
+    <div class="rec-tap">
+      <span class="rec-tap-line" aria-hidden="true"></span>
+      <svg class="rec-tap-pin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span class="rec-tap-text" data-i18n="rec_tap">Tap any place to open in Google Maps</span>
+      <span class="rec-tap-line" aria-hidden="true"></span>
+    </div>
 
     <details class="rec-dropdown">
       <summary>
@@ -955,7 +982,7 @@ details[open] > summary .faq-chevron {
       </summary>
       <div class="rec-body">
         <p style="font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.6;margin:0 0 8px;color:var(--wine);" data-i18n="rec_coffee">Coffee</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
           <a href="https://maps.google.com/?q=Ototo%20Coffee%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">Ototo <span style="opacity:0.6;font-size:0.8rem;">· Victoriei or Amzei location</span></a>
           <a href="https://maps.google.com/?q=Uzina%20cafe%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">Uzina</a>
           <a href="https://maps.google.com/?q=M60%20cafe%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">M60</a>
@@ -1172,6 +1199,7 @@ details[open] > summary .faq-chevron {
         </a>
       </div>
     </details>
+    </div><!-- end rec-card -->
 
   </div>
 
@@ -1351,6 +1379,7 @@ details[open] > summary .faq-chevron {
       things_sub2: "To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.",
       rec_eat: "Places to eat", rec_bars: "Bars and cocktail bars", rec_night: "Nightlife", rec_see: "Things to see and do", rec_excursions: "Excursions outside of Bucharest",
       rec_dinner: "Lunch / Dinner", rec_breakfast: "Breakfast", rec_dessert: "Dessert", rec_coffee: "Coffee", rec_beer_alley: "Beer Alley",
+      rec_title: "General Recommendations",
       rec_tap: "Tap any place to open in Google Maps",
       rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Group Outing Opportunities",
@@ -1359,9 +1388,9 @@ details[open] > summary .faq-chevron {
       things_i3: "The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.",
       things_i4: "You will be in charge of purchasing your own tickets specified, and managing your time at each place.",
       things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
-      things_m14: "Wednesday, July 14",
+      things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)",
       things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
-      things_m15: "Thursday, July 15",
+      things_m15: "Thursday, July 15", things_t15: "Bran Castle (Dracula Castle)",
       things_m15_p1: "There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the \u201cDracula\u201d castle).",
       things_shuttle: "Shuttle departs from Bucharest and returns same day.",
       things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "RSVP",
@@ -1425,6 +1454,7 @@ details[open] > summary .faq-chevron {
       things_sub2: "Pentru a vă face șederea cât mai ușoară și plăcută, mai jos găsiți o listă cu cele mai bune recomandări ale noastre de lucruri de experimentat în timp ce sunteți aici.",
       rec_eat: "Locuri de mâncare", rec_bars: "Baruri și cocktail baruri", rec_night: "Viața de noapte", rec_see: "Lucruri de văzut și de făcut", rec_excursions: "Excursii în afara Bucureștiului",
       rec_dinner: "Prânz / Cină", rec_breakfast: "Mic dejun", rec_dessert: "Desert", rec_coffee: "Cafea", rec_beer_alley: "Beer Alley",
+      rec_title: "Recomandări generale",
       rec_tap: "Apasă pe orice loc pentru a-l deschide în Google Maps",
       rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Ieșiri de grup",
@@ -1433,9 +1463,9 @@ details[open] > summary .faq-chevron {
       things_i3: "Scopul este să aveți un motiv să călătoriți împreună cu un grup mai mare și să vă cunoașteți înainte de nuntă.",
       things_i4: "Biletele menționate le achiziționați voi, iar timpul la fiecare loc îl gestionați voi.",
       things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
-      things_m14: "Miercuri, 14 iulie",
+      things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)",
       things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
-      things_m15: "Joi, 15 iulie",
+      things_m15: "Joi, 15 iulie", things_t15: "Castelul Bran (Castelul lui Dracula)",
       things_m15_p1: "Vom organiza o excursie de o zi întreagă pentru a explora Castelul Peleș, orașul saxon/transilvănean Brașov și Castelul Bran (castelul \u201eDracula\u201d).",
       things_shuttle: "Shuttle-ul pleacă din București și revine în aceeași zi.",
       things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "RSVP",
