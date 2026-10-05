@@ -200,6 +200,24 @@ p, li { line-height: 1.7; }
 }
 .website-btn:hover, .website-btn:focus-visible { background: var(--wine-deep); outline: none; }
 
+/* ── GROUP OUTINGS CARD ── */
+.group-card { background: var(--cream); color: var(--wine); border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+.group-title { font-family: "Great Vibes", cursive; font-size: clamp(1.9rem, 6vw, 2.4rem); text-align: center; margin: 0 0 0.4rem; line-height: 1.2; color: var(--wine); }
+.group-intro { font-size: 0.95rem; line-height: 1.65; opacity: 0.85; text-align: center; margin: 0 0 1rem; }
+.group-dropdown { border: 1px solid rgba(75,0,31,0.2); border-radius: 12px; overflow: hidden; }
+.group-dropdown summary { list-style: none; cursor: pointer; padding: 13px 16px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1rem; color: var(--wine); }
+.group-dropdown summary::-webkit-details-marker { display: none; }
+.group-dropdown summary:hover { background: rgba(75,0,31,0.05); }
+.group-body { padding: 4px 14px 14px; border-top: 1px solid rgba(75,0,31,0.12); }
+.group-trip { margin-top: 12px; border-radius: 10px; overflow: hidden; background: rgba(75,0,31,0.05); border: 1px solid rgba(75,0,31,0.12); }
+#things .group-trip .things-activity-img { display: block; width: 100%; height: min(180px, 42vw); object-fit: cover; }
+#things .group-trip .things-activity-body { padding: 0.9rem 1rem; }
+#things .group-trip .things-activity-body > strong { display: block; margin-bottom: 0.4rem; }
+#things .group-trip .things-activity-body p { margin: 0.4rem 0 0; }
+.group-note { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(201,162,39,0.08); border-radius: 0 8px 8px 0; font-size: 0.9rem; line-height: 1.6; }
+.group-note p { margin: 0 0 0.5rem; }
+.group-note p:last-child { margin-bottom: 0; }
+
 /* ── STORY ── */
 #story { max-width: 1040px; }
 .story-layout {
@@ -735,6 +753,7 @@ details[open] > summary .faq-chevron {
 <section id="schedule" hidden aria-labelledby="schedule-heading">
   <h2 id="schedule-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="sch_page_title">Weekend Schedule</span></h2>
   <p class="section-lead" data-i18n="schedule_lead">We can't wait to celebrate with you.</p>
+  <p class="section-lead" data-i18n="schedule_lead2">For optional group outings the days leading up to the wedding, check out our "Things To Do" tab!</p>
 
   <div class="schedule-box">
 
@@ -855,71 +874,79 @@ details[open] > summary .faq-chevron {
 <section id="things" hidden aria-labelledby="things-heading">
   <h2 id="things-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="nav_things">Things To Do</span></h2>
 
-  <!-- ============================================================
-       ACTIVITIES VISIBILITY FLAG
-       Change SHOW_ACTIVITIES to false to hide the group activities again
-       ============================================================ -->
-  <script>var SHOW_ACTIVITIES = true;</script>
-  <div id="activities-block" style="display:none;">
-
-    <div class="content-card">
-      <p data-i18n="things_i1">Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!</p>
-      <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
-      <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
-      <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
-    </div>
-
-    <div class="content-card things-activity-card">
-      <img class="things-activity-img" src="things-peoples-palace.jpg" alt="Palace of the Parliament, Bucharest" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_parliament">
-      <div class="things-activity-body">
-        <strong data-i18n="things_m12">Monday, July 12</strong>
-        <p data-i18n="things_m12_p">To kick off the week, we will meet for a free walking tour of Bucharest at 3pm, meeting at Strada Lipscani 77, 030167. This tour will focus on the history of Bucharest, to allow people to gain more insight on important historical events/sites around the city!</p>
-      </div>
-    </div>
-
-    <div class="content-card things-activity-card">
-      <img class="things-activity-img" src="things-bran-castle.jpg" alt="Bran Castle" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_bran">
-      <div class="things-activity-body">
-        <strong data-i18n="things_m13">Tuesday, July 13</strong>
-        <p data-i18n="things_m13_p1">Private shuttle for a half-day exploring the Saxon/Transylvanian town of Brașov, and a half-day exploring Bran Castle (the "Dracula" castle).</p>
-        <p data-i18n="things_m13_p2">Shuttle departs from Bucharest and returns same day.</p>
-        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
-        <p><a class="website-btn" href="https://forms.gle/kit6CGPwQR2vGr3e6" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">Website</a></p>
-      </div>
-    </div>
-
-    <div class="content-card things-activity-card">
-      <img class="things-activity-img" src="things-peles-castle.jpg" alt="Peleș Castle, Sinaia" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_peles">
-      <div class="things-activity-body">
-        <strong data-i18n="things_m14">Wednesday, July 14</strong>
-        <p data-i18n="things_m14_p1">We will be doing a shorter day trip to the mountain town of Sinaia, to see Peleș Castle. Because this trip is shorter, and involves less transfers, we will be taking the train.</p>
-        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
-        <p><a class="website-btn" href="https://forms.gle/vUeCwMeg4kGSDqpn9" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">Website</a></p>
-      </div>
-    </div>
-
-    <div class="content-card things-activity-card">
-      <img class="things-activity-img" src="things-therme.jpg" alt="Therme Bucharest" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_therme">
-      <div class="things-activity-body">
-        <strong data-i18n="things_m15">Thursday, July 15</strong>
-        <p data-i18n="things_m15_p1">We'll spend a relaxing afternoon and evening at Therme Bucharest. We'll depart after lunch at 1:00 PM.</p>
-        <p data-i18n="things_m15_p2">There's a local bus that goes to Therme—ask your hotel concierge if you'd like help with routes—but the fastest and most direct way is to use Uber, which is what we usually do.</p>
-        <p data-i18n-html="things_m15_p3">Buy tickets at the entrance or in advance on their website: <a href="https://www.therme.ro/" target="_blank" rel="noopener noreferrer">therme.ro</a>.</p>
-        <p data-i18n="things_m15_p4">Choose any package and duration you prefer. Please bring flip-flops to wear between pool areas; if you don't have a pair you can buy them on site.</p>
-      </div>
-    </div>
-
-  </div><!-- end activities-block -->
-  <script>if (SHOW_ACTIVITIES) document.getElementById('activities-block').style.display = '';</script>
-
-  <!-- Recommendations -->
-  <div style="max-width:42rem; margin:1.5rem auto 0; text-align:left;">
+  <div style="max-width:42rem; margin:0 auto; text-align:left;">
 
     <!-- Intro card -->
     <div style="background:var(--cream); border:none; border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.25rem; text-align:center; color:var(--wine);">
       <p style="font-size:clamp(1.1rem,3vw,1.3rem); font-weight:600; margin:0 0 0.6rem; line-height:1.4; font-family:'Cormorant Garamond',Georgia,serif; color:var(--wine);" data-i18n="things_sub">We know many of you are traveling a great distance to be at our wedding and we could not be more thankful!</p>
-      <p style="font-size:0.95rem; opacity:0.8; margin:0; line-height:1.65; color:var(--wine);" data-i18n-html="things_sub2">To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here. <strong>Please make sure to come back to this page in the future as well, as we have plans to put together some group activities the days leading up to the wedding!</strong></p>
+      <p style="font-size:0.95rem; opacity:0.8; margin:0; line-height:1.65; color:var(--wine);" data-i18n-html="things_sub2">To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.</p>
     </div>
+
+    <!-- ============================================================
+         GROUP OUTINGS VISIBILITY FLAG
+         Change SHOW_ACTIVITIES to false to hide the group outings card
+         ============================================================ -->
+    <script>var SHOW_ACTIVITIES = true;</script>
+    <div id="activities-block" class="group-card" style="display:none;">
+      <p class="group-title" data-i18n="things_group_title">Group Outing Opportunities</p>
+      <p class="group-intro" data-i18n="things_i1">Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!</p>
+
+      <details class="group-dropdown">
+        <summary>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span data-i18n="things_m14">Wednesday, July 14</span>
+          <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </summary>
+        <div class="group-body">
+
+    <div class="group-trip">
+      <img class="things-activity-img" src="img-cantacuzino-castle.jpg" alt="Cantacuzino Castle, Bușteni" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_cantacuzino">
+      <div class="things-activity-body">
+        <p data-i18n="things_m14_p1">There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.</p>
+        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
+        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
+        <p><a class="website-btn" href="https://docs.google.com/forms/d/1MeM6Op00cJr1NMJ6BzLcTV2JTGhjR8A9XdXqQDMXJ-Y/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
+      </div>
+    </div>
+
+          <div class="group-note">
+            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
+            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
+            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="group-dropdown" style="margin-top:10px;">
+        <summary>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span data-i18n="things_m15">Thursday, July 15</span>
+          <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </summary>
+        <div class="group-body">
+
+    <div class="group-trip">
+      <img class="things-activity-img" src="things-bran-castle.jpg" alt="Bran Castle" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_bran">
+      <div class="things-activity-body">
+        <p data-i18n="things_m15_p1">There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the "Dracula" castle).</p>
+        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
+        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
+        <p><a class="website-btn" href="https://docs.google.com/forms/d/1zoO7gRj6t0aLO6z7fDqV1zUzI1pmml-Grqa1atY6-EU/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
+      </div>
+    </div>
+
+          <div class="group-note">
+            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
+            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
+            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
+          </div>
+
+        </div>
+      </details>
+    </div>
+    <script>if (SHOW_ACTIVITIES) document.getElementById('activities-block').style.display = '';</script>
+
     <p style="font-size:0.78rem; opacity:0.5; margin:0 0 0.85rem; text-align:center; letter-spacing:0.04em;" data-i18n="rec_tap">Tap any place to open in Google Maps</p>
 
     <details class="rec-dropdown">
@@ -1309,6 +1336,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Our engagement photos were done by the amazing Andreea Sali from Eforie Sud<br>\n    Instagram business account: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Enlarged photo", lightbox_prev: "Previous photo", lightbox_next: "Next photo",
       schedule_lead: "We can't wait to celebrate with you.",
+      schedule_lead2: "For optional group outings the days leading up to the wedding, check out our \"Things To Do\" tab!",
       sch_page_title: "Weekend Schedule",
       sch_fri: "Friday, July 16", sch_fri_welcome: "Welcome Drinks", sch_fri_time: "TBD",
       sch_sat: "Saturday, July 17", sch_sat_cer: "Catholic Ceremony", sch_sat_church: "3:00 pm @ St. Joseph's Cathedral",
@@ -1320,27 +1348,23 @@ details[open] > summary .faq-chevron {
       travel_lead: "Bucharest Henri Coandă (OTP) is the main international airport, about 30–45 minutes from the city center by car or taxi.",
       travel_h2: "Travel & Lodging",
       things_sub: "We know many of you are traveling a great distance to be at our wedding and we could not be more thankful!",
-      things_sub2: "To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here. <strong>Please make sure to come back to this page in the future as well, as we have plans to put together some group activities the days leading up to the wedding!</strong>",
+      things_sub2: "To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.",
       rec_eat: "Places to eat", rec_bars: "Bars and cocktail bars", rec_night: "Nightlife", rec_see: "Things to see and do", rec_excursions: "Excursions outside of Bucharest",
       rec_dinner: "Lunch / Dinner", rec_breakfast: "Breakfast", rec_dessert: "Dessert", rec_coffee: "Coffee", rec_beer_alley: "Beer Alley",
       rec_tap: "Tap any place to open in Google Maps",
-      rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.",
+      rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
+      things_group_title: "Group Outing Opportunities",
       things_i1: "Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!",
       things_i2: "Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.",
       things_i3: "The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.",
       things_i4: "You will be in charge of purchasing your own tickets specified, and managing your time at each place.",
-      things_alt_parliament: "Palace of the Parliament, Bucharest", things_m12: "Monday, July 12",
-      things_m12_p: "To kick off the week, we will meet for a free walking tour of Bucharest at 3pm, meeting at Strada Lipscani 77, 030167. This tour will focus on the history of Bucharest, to allow people to gain more insight on important historical events/sites around the city!",
-      things_alt_bran: "Bran Castle", things_m13: "Tuesday, July 13",
-      things_m13_p1: "Private shuttle for a half-day exploring the Saxon/Transylvanian town of Brașov, and a half-day exploring Bran Castle (the \u201cDracula\u201d castle).", things_m13_p2: "Shuttle departs from Bucharest and returns same day.",
-      things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "Website",
-      things_alt_peles: "Peleș Castle, Sinaia", things_m14: "Wednesday, July 14",
-      things_m14_p1: "We will be doing a shorter day trip to the mountain town of Sinaia, to see Peleș Castle. Because this trip is shorter, and involves less transfers, we will be taking the train.",
-      things_alt_therme: "Therme Bucharest", things_m15: "Thursday, July 15",
-      things_m15_p1: "We'll spend a relaxing afternoon and evening at Therme Bucharest. We'll depart after lunch at 1:00 PM.",
-      things_m15_p2: "There's a local bus that goes to Therme—ask your hotel concierge if you'd like help with routes—but the fastest and most direct way is to use Uber, which is what we usually do.",
-      things_m15_p3: "Buy tickets at the entrance or in advance on their website: <a href=\"https://www.therme.ro/\" target=\"_blank\" rel=\"noopener noreferrer\">therme.ro</a>.",
-      things_m15_p4: "Choose any package and duration you prefer. Please bring flip-flops to wear between pool areas; if you don't have a pair you can buy them on site.",
+      things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
+      things_m14: "Wednesday, July 14",
+      things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
+      things_m15: "Thursday, July 15",
+      things_m15_p1: "There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the \u201cDracula\u201d castle).",
+      things_shuttle: "Shuttle departs from Bucharest and returns same day.",
+      things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "RSVP",
       faq_q1: "What is the best way to get to Bucharest?", faq_a1: "<strong>Bucharest Henri Coandă International Airport (OTP)</strong> is the main airport to fly into.",
       faq_q2: "What is the dress code?", faq_a2: "Summer Formal — It will be very hot, so plan for suits/dresses/formal wear that will be comfortable!",
       faq_q3: "Will the wedding be indoors or outdoors?", faq_a3a: "Most everything will take place indoors!", faq_a3b: "The religious ceremony and main reception will be inside, with cocktail hour being outside on a terrace, weather permitting.",
@@ -1386,6 +1410,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Fotografiile de logodnă au fost realizate de minunata Andreea Sali din Eforie Sud<br>\n    Cont Instagram business: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Fotografie mărită", lightbox_prev: "Fotografia anterioară", lightbox_next: "Fotografia următoare",
       schedule_lead: "Abia așteptăm să sărbătorim cu voi.",
+      schedule_lead2: "Pentru ieșirile opționale de grup din zilele dinaintea nunții, aruncați o privire în secțiunea \u201eActivități\u201d!",
       sch_page_title: "Programul weekendului",
       sch_fri: "Vineri, 16 iulie", sch_fri_welcome: "Welcome drinks", sch_fri_time: "TBD",
       sch_sat: "Sâmbătă, 17 iulie", sch_sat_cer: "Ceremonie religioasă catolică", sch_sat_church: "15:00 @ Catedrala Sfântul Iosif",
@@ -1397,28 +1422,23 @@ details[open] > summary .faq-chevron {
       travel_lead: "Aeroportul Internațional Henri Coandă București (OTP) este principalul aeroport internațional, la aproximativ 30–45 de minute de centrul orașului cu mașina sau taxiul.",
       travel_h2: "Călătorie și cazare",
       things_sub: "Știm că mulți dintre voi călătoriți de departe pentru a fi la nunta noastră și nu putem fi mai recunoscători!",
-      things_sub2: "Pentru a vă face șederea cât mai ușoară și plăcută, mai jos găsiți o listă cu cele mai bune recomandări ale noastre de lucruri de experimentat în timp ce sunteți aici. <strong>Asigurați-vă că reveniți pe această pagină și în viitor, deoarece avem planuri să organizăm câteva activități de grup în zilele dinaintea nunții!</strong>",
+      things_sub2: "Pentru a vă face șederea cât mai ușoară și plăcută, mai jos găsiți o listă cu cele mai bune recomandări ale noastre de lucruri de experimentat în timp ce sunteți aici.",
       rec_eat: "Locuri de mâncare", rec_bars: "Baruri și cocktail baruri", rec_night: "Viața de noapte", rec_see: "Lucruri de văzut și de făcut", rec_excursions: "Excursii în afara Bucureștiului",
       rec_dinner: "Prânz / Cină", rec_breakfast: "Mic dejun", rec_dessert: "Desert", rec_coffee: "Cafea", rec_beer_alley: "Beer Alley",
       rec_tap: "Apasă pe orice loc pentru a-l deschide în Google Maps",
-      rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.",
+      rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
+      things_group_title: "Ieșiri de grup",
       things_i1: "Mai jos găsiți activități de grup în săptămâna dinaintea nunții și cum vă puteți înscrie. Puteți participa la câte doriți — sau vizita aceste locuri în timpul vostru liber la București! Sunt recomandările noastre și sperăm să vă placă!",
       things_i2: "Notă: sunt ieșiri informale de grup, nu tururi ghidate. Activitatea oferă ocazia să fiți cu toții în același loc, fără ghid oficial; după sosire puteți explora singuri sau împreună cu grupul.",
       things_i3: "Scopul este să aveți un motiv să călătoriți împreună cu un grup mai mare și să vă cunoașteți înainte de nuntă.",
       things_i4: "Biletele menționate le achiziționați voi, iar timpul la fiecare loc îl gestionați voi.",
-      things_alt_parliament: "Palatul Parlamentului, București", things_m12: "Luni, 12 iulie",
-      things_m12_p: "Deschidem săptămâna cu un tur pietonal gratuit al Bucureștiului la ora 15:00, punct de întâlnire Strada Lipscani 77, 030167. Turul se concentrează pe istoria Bucureștiului și pe evenimente/locuri importante din oraș!",
-      things_alt_bran: "Castelul Bran", things_m13: "Marți, 13 iulie",
-      things_m13_p1: "Shuttle privat pentru o jumătate de zi în Brașov (oraș saxon/transilvănean) și o jumătate de zi la Castelul Bran (\u201eDracula\u201d).",
-      things_m13_p2: "Shuttle-ul pleacă din București și revine în aceeași zi.",
-      things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "Formular",
-      things_alt_peles: "Castelul Peleș, Sinaia", things_m14: "Miercuri, 14 iulie",
-      things_m14_p1: "Excursie mai scurtă la munte, în Sinaia, la Castelul Peleș. Pentru mai puține transbordări folosim trenul.",
-      things_alt_therme: "Therme București", things_m15: "Joi, 15 iulie",
-      things_m15_p1: "După-amiază și seară relaxante la Therme București. Plecare după prânz la ora 13:00.",
-      things_m15_p2: "Există autobuz local spre Therme — întrebați la recepția hotelului pentru trasee — cel mai rapid este de obicei Uber, cum folosim și noi.",
-      things_m15_p3: "Biletele le puteți lua la intrare sau în avans pe site: <a href=\"https://www.therme.ro/\" target=\"_blank\" rel=\"noopener noreferrer\">therme.ro</a>.",
-      things_m15_p4: "Alegeți pachetul și durata dorite. Luați papuci de piscină pentru deplasarea între zone; dacă nu aveți, se pot cumpăra la fața locului.",
+      things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
+      things_m14: "Miercuri, 14 iulie",
+      things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
+      things_m15: "Joi, 15 iulie",
+      things_m15_p1: "Vom organiza o excursie de o zi întreagă pentru a explora Castelul Peleș, orașul saxon/transilvănean Brașov și Castelul Bran (castelul \u201eDracula\u201d).",
+      things_shuttle: "Shuttle-ul pleacă din București și revine în aceeași zi.",
+      things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "RSVP",
       faq_q1: "Care este cea mai bună modalitate de a ajunge la București?", faq_a1: "<strong>Aeroportul Internațional Henri Coandă București (OTP)</strong> este principalul aeroport pentru zboruri.",
       faq_q2: "Care este dress code-ul?", faq_a2: "Summer Formal — Va fi foarte cald, alegeți costume/rochii/ținută formală confortabilă!",
       faq_q3: "Nunta este în interior sau exterior?", faq_a3a: "Aproape totul va fi în interior!", faq_a3b: "Ceremonia religioasă și recepția vor fi înăuntru; cocktailul poate fi pe terasă, în funcție de vreme.",
