@@ -213,6 +213,7 @@ p, li { line-height: 1.7; }
 #things .group-trip .things-activity-img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover; object-position: center; }
 .group-tab-text { display: flex; flex-direction: column; line-height: 1.25; }
 .group-tab-date { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.group-tab-sep { color: var(--gold); margin: 0 2px; }
 .group-tab-title { font-size: 1.08rem; font-weight: 600; }
 #things .group-trip .things-activity-body { padding: 0.9rem 1rem; }
 #things .group-trip .things-activity-body > strong { display: block; margin-bottom: 0.4rem; }
@@ -910,7 +911,7 @@ details[open] > summary .faq-chevron {
       <details class="group-dropdown">
         <summary>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="group-tab-text"><span class="group-tab-date" data-i18n="things_m14">Wednesday, July 14</span><span class="group-tab-title" data-i18n="things_t14">Cantacuzino Castle (Nevermore Academy)</span></span>
+          <span class="group-tab-text"><span class="group-tab-date"><span data-i18n="things_m14">Wednesday, July 14</span> <span class="group-tab-sep" aria-hidden="true">·</span> <span data-i18n="things_time14">8:45 am</span></span><span class="group-tab-title" data-i18n="things_t14">Cantacuzino Castle (Nevermore Academy)</span></span>
           <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </summary>
         <div class="group-body">
@@ -937,7 +938,7 @@ details[open] > summary .faq-chevron {
       <details class="group-dropdown" style="margin-top:10px;">
         <summary>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="group-tab-text"><span class="group-tab-date" data-i18n="things_m15">Thursday, July 15</span><span class="group-tab-title" data-i18n="things_t15">Bran Castle (Dracula Castle)</span></span>
+          <span class="group-tab-text"><span class="group-tab-date"><span data-i18n="things_m15">Thursday, July 15</span> <span class="group-tab-sep" aria-hidden="true">·</span> <span data-i18n="things_time15">6:45 am</span></span><span class="group-tab-title" data-i18n="things_t15">Bran Castle (Dracula Castle)</span></span>
           <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         </summary>
         <div class="group-body">
@@ -1388,9 +1389,9 @@ details[open] > summary .faq-chevron {
       things_i3: "The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.",
       things_i4: "You will be in charge of purchasing your own tickets specified, and managing your time at each place.",
       things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
-      things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)",
+      things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)", things_time14: "8:45 am",
       things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
-      things_m15: "Thursday, July 15", things_t15: "Bran Castle (Dracula Castle)",
+      things_m15: "Thursday, July 15", things_t15: "Bran Castle (Dracula Castle)", things_time15: "6:45 am",
       things_m15_p1: "There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the \u201cDracula\u201d castle).",
       things_shuttle: "Shuttle departs from Bucharest and returns same day.",
       things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "RSVP",
@@ -1463,9 +1464,9 @@ details[open] > summary .faq-chevron {
       things_i3: "Scopul este să aveți un motiv să călătoriți împreună cu un grup mai mare și să vă cunoașteți înainte de nuntă.",
       things_i4: "Biletele menționate le achiziționați voi, iar timpul la fiecare loc îl gestionați voi.",
       things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
-      things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)",
+      things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)", things_time14: "8:45",
       things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
-      things_m15: "Joi, 15 iulie", things_t15: "Castelul Bran (Castelul lui Dracula)",
+      things_m15: "Joi, 15 iulie", things_t15: "Castelul Bran (Castelul lui Dracula)", things_time15: "6:45",
       things_m15_p1: "Vom organiza o excursie de o zi întreagă pentru a explora Castelul Peleș, orașul saxon/transilvănean Brașov și Castelul Bran (castelul \u201eDracula\u201d).",
       things_shuttle: "Shuttle-ul pleacă din București și revine în aceeași zi.",
       things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "RSVP",
