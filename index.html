@@ -133,6 +133,20 @@ h2 {
   color: var(--cream);
 }
 h2 img { width: 62px; height: 62px; object-fit: contain; }
+/* Section headings: words sit dead-center on the page; the swan hangs off to the left */
+section > h2 {
+  display: grid;
+  grid-template-columns: minmax(62px, 1fr) auto minmax(62px, 1fr);
+  column-gap: 0.6rem;
+  align-items: center;
+}
+section > h2 > img { grid-column: 1; justify-self: end; }
+section > h2 > span { grid-column: 2; text-align: center; }
+section > h2::after { content: ""; grid-column: 3; }
+@media (max-width: 480px) {
+  section > h2 { grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr); column-gap: 0.35rem; font-size: clamp(1.7rem, 7.6vw, 2rem); }
+  section > h2 > img { width: 40px; height: 40px; }
+}
 h2 img[src=""], h2 img:not([src]) { display: none; }
 
 .section-lead {
