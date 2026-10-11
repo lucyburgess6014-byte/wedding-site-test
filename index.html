@@ -222,6 +222,15 @@ p, li { line-height: 1.7; }
 .group-dropdown summary { list-style: none; cursor: pointer; padding: 13px 16px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1rem; color: var(--wine); }
 .group-dropdown summary::-webkit-details-marker { display: none; }
 .group-dropdown summary:hover { background: rgba(75,0,31,0.05); }
+/* Trip tabs: soft tint with a burgundy arrow button */
+.group-dropdown { border: 1.5px solid rgba(75,0,31,0.35); }
+.group-dropdown summary { background: rgba(75,0,31,0.07); transition: background 0.15s; }
+.group-dropdown summary:hover, .group-dropdown summary:focus-visible { background: rgba(75,0,31,0.12); outline: none; }
+.group-dropdown summary .rec-chevron { background: var(--wine); stroke: var(--cream); border-radius: 999px; padding: 5px; width: 24px; height: 24px; box-sizing: border-box; }
+.group-dropdown summary .group-tab-sep { color: var(--gold); }
+.group-tab-date > span:last-child { white-space: nowrap; }
+.group-dropdown summary .group-tab-sep { color: var(--gold); }
+.group-dropdown .group-body { border-top-color: rgba(75,0,31,0.25); }
 .group-body { padding: 4px 14px 14px; border-top: 1px solid rgba(75,0,31,0.12); }
 .group-trip { margin-top: 12px; border-radius: 10px; overflow: hidden; background: rgba(75,0,31,0.05); border: 1px solid rgba(75,0,31,0.12); }
 #things .group-trip .things-activity-img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover; object-position: center; }
