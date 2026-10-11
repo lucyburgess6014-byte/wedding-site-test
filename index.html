@@ -288,6 +288,11 @@ textarea.rsvp-input { resize: vertical; min-height: 80px; }
 .rsvp-more[hidden] { display: none; }
 .rsvp-more .rsvp-choice { margin-top: 12px; }
 .rsvp-extra { margin-top: 6px; }
+select.rsvp-input { appearance: none; -webkit-appearance: none; padding-right: 38px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c9a227' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; }
+.rsvp-meal-desc { font-size: 0.92rem; font-style: italic; line-height: 1.5; opacity: 0.8; margin: 6px 2px 0; }
+.rsvp-meal-desc[hidden] { display: none; }
 .rsvp-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 1.2rem; }
 .rsvp-done { text-align: center; padding: 0.5rem 0; }
 @media (max-width: 480px) {
@@ -1395,6 +1400,13 @@ details[open] > summary .faq-chevron {
   <script>var RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxeLsiPr8v-mytT5kQ2jYVMNJvnwlHCEPW_Z70Tsni_FeOWT7mhONSGobYYZ-nPb4z4Dw/exec";</script>
   <!-- Set to false to stop asking about Friday welcome drinks -->
   <script>var RSVP_ASK_WELCOME_DRINKS = true;</script>
+  <!-- Meal choices. "value" is what's saved in the sheet; the wording guests see
+       is in the translations (meal_beef, meal_beef_desc, etc.) -->
+  <script>var RSVP_MEALS = [
+    { value: "Beef Tenderloin Rossini", key: "meal_beef" },
+    { value: "Slow Cooked Duck Leg",    key: "meal_duck" },
+    { value: "Green Vegetable Curry",   key: "meal_curry" }
+  ];</script>
 
   <div id="rsvp-soon" style="max-width:36rem; margin:2rem auto; text-align:center;">
     <div class="content-card" style="text-align:center; padding:2rem 1.5rem;">
@@ -1425,9 +1437,7 @@ details[open] > summary .faq-chevron {
       <div id="rsvp-guests"></div>
 
       <div class="rsvp-extra">
-        <label class="rsvp-label" for="rsvp-email" data-i18n="rsvp_email_label">Email (for wedding updates)</label>
-        <input id="rsvp-email" class="rsvp-input" type="email" autocomplete="email" placeholder="name@example.com">
-        <label class="rsvp-label" for="rsvp-msg" data-i18n="rsvp_msg_label">A note for Lucy &amp; Cosmin (optional)</label>
+        <label class="rsvp-label" for="rsvp-msg" data-i18n="rsvp_msg_label">A note or song suggestion for Lucy &amp; Cosmin (optional)</label>
         <textarea id="rsvp-msg" class="rsvp-input" rows="3"></textarea>
       </div>
 
@@ -1538,7 +1548,15 @@ details[open] > summary .faq-chevron {
       rsvp_plus_tag: "Plus one", rsvp_plus_name: "Your plus one's full name", rsvp_plus_ph: "Their full name",
       rsvp_drinks_q: "Joining us for welcome drinks on Friday, July 16?", rsvp_yes: "Yes", rsvp_no: "No",
       rsvp_diet_label: "Dietary restrictions or allergies", rsvp_diet_ph: "Leave blank if none",
-      rsvp_email_label: "Email (for wedding updates)", rsvp_msg_label: "A note for Lucy & Cosmin (optional)",
+      rsvp_email_label: "Email (for wedding updates, optional)", rsvp_msg_label: "A note or song suggestion for Lucy & Cosmin (optional)",
+      rsvp_meal_label: "Dinner selection", rsvp_meal_choose: "Choose a meal…",
+      meal_beef: "Beef Tenderloin Rossini",
+      meal_beef_desc: "Beef medallion with foie gras, green peppercorn sauce, potato mousseline and glazed root vegetables",
+      meal_duck: "Slow Cooked Duck Leg",
+      meal_duck_desc: "Braised red cabbage with raisins and orange, sweet potato purée and wild berry sauce",
+      meal_curry: "Green Vegetable Curry",
+      meal_curry_desc: "Fragrant vegetable curry flavored with lemongrass and kaffir lime, served with steamed rice",
+      rsvp_err_meal: "Please choose a dinner selection for each guest attending.",
       rsvp_submit: "Send RSVP", rsvp_sending: "Sending…",
       rsvp_err_choose: "Please choose accept or decline for each guest.",
       rsvp_err_plus: "Please add your plus one's name.",
@@ -1636,7 +1654,15 @@ details[open] > summary .faq-chevron {
       rsvp_plus_tag: "Însoțitor", rsvp_plus_name: "Numele complet al însoțitorului", rsvp_plus_ph: "Nume complet",
       rsvp_drinks_q: "Veniți la welcome drinks vineri, 16 iulie?", rsvp_yes: "Da", rsvp_no: "Nu",
       rsvp_diet_label: "Restricții alimentare sau alergii", rsvp_diet_ph: "Lăsați gol dacă nu este cazul",
-      rsvp_email_label: "E-mail (pentru noutăți despre nuntă)", rsvp_msg_label: "Un mesaj pentru Lucy și Cosmin (opțional)",
+      rsvp_email_label: "E-mail (pentru noutăți despre nuntă, opțional)", rsvp_msg_label: "Un mesaj sau o sugestie de melodie pentru Lucy și Cosmin (opțional)",
+      rsvp_meal_label: "Meniul ales", rsvp_meal_choose: "Alegeți un meniu…",
+      meal_beef: "Mușchi de vită Rossini",
+      meal_beef_desc: "Medalion de vită cu foie gras, sos de piper verde, piure fin de cartofi și legume rădăcinoase glasate",
+      meal_duck: "Pulpă de rață gătită lent",
+      meal_duck_desc: "Varză roșie călită cu stafide și portocală, piure de cartofi dulci și sos de fructe de pădure",
+      meal_curry: "Curry de legume verzi",
+      meal_curry_desc: "Curry aromat de legume, cu lemongrass și lime kaffir, servit cu orez fiert la abur",
+      rsvp_err_meal: "Vă rugăm să alegeți meniul pentru fiecare invitat care participă.",
       rsvp_submit: "Trimite RSVP", rsvp_sending: "Se trimite…",
       rsvp_err_choose: "Vă rugăm să alegeți un răspuns pentru fiecare invitat.",
       rsvp_err_plus: "Vă rugăm să adăugați numele însoțitorului.",
@@ -1939,6 +1965,7 @@ details[open] > summary .faq-chevron {
 (function () {
   var endpoint = (typeof RSVP_ENDPOINT === "string" ? RSVP_ENDPOINT : "").trim();
   var askDrinks = typeof RSVP_ASK_WELCOME_DRINKS === "undefined" ? true : !!RSVP_ASK_WELCOME_DRINKS;
+  var meals = (typeof RSVP_MEALS !== "undefined" && RSVP_MEALS) || [];
   var app = document.getElementById("rsvp-app");
   var soon = document.getElementById("rsvp-soon");
   if (!app || !endpoint) return;              // no link yet → keep "Coming Soon"
@@ -1955,7 +1982,6 @@ details[open] > summary .faq-chevron {
   var partyErr = document.getElementById("rsvp-party-error");
   var guestsBox = document.getElementById("rsvp-guests");
   var already = document.getElementById("rsvp-already");
-  var emailInput = document.getElementById("rsvp-email");
   var msgInput = document.getElementById("rsvp-msg");
   var thanks = document.getElementById("rsvp-thanks");
 
@@ -2006,9 +2032,20 @@ details[open] > summary .faq-chevron {
         more += '<label class="rsvp-label" for="rsvp-plus-' + i + '" data-i18n="rsvp_plus_name"></label>' +
                 '<input id="rsvp-plus-' + i + '" class="rsvp-input" data-field="plusName" type="text" data-i18n-ph="rsvp_plus_ph" value="' + esc(g.plusName) + '">';
       }
+      if (meals.length) {
+        var cur = meals.filter(function (m) { return m.value === g.meal; })[0];
+        more += '<label class="rsvp-label" for="rsvp-meal-' + i + '" data-i18n="rsvp_meal_label"></label>' +
+                '<select id="rsvp-meal-' + i + '" class="rsvp-input" data-field="meal"><option value="" data-i18n="rsvp_meal_choose"></option>';
+        meals.forEach(function (m) {
+          more += '<option value="' + esc(m.value) + '"' + (m.value === g.meal ? " selected" : "") + ' data-i18n="' + m.key + '"></option>';
+        });
+        more += '</select><p class="rsvp-meal-desc"' + (cur ? ' data-i18n="' + cur.key + '_desc"' : " hidden") + "></p>";
+      }
       if (askDrinks) more += choice("rsvp-drinks-" + i, "rsvp_drinks_q", [["Yes", "rsvp_yes"], ["No", "rsvp_no"]], g.drinks, true);
       more += '<label class="rsvp-label" for="rsvp-diet-' + i + '" data-i18n="rsvp_diet_label"></label>' +
               '<input id="rsvp-diet-' + i + '" class="rsvp-input" data-field="dietary" type="text" data-i18n-ph="rsvp_diet_ph" value="' + esc(g.dietary) + '">';
+      more += '<label class="rsvp-label" for="rsvp-email-' + i + '" data-i18n="rsvp_email_label"></label>' +
+              '<input id="rsvp-email-' + i + '" class="rsvp-input" data-field="email" type="email" autocomplete="off" placeholder="name@example.com" value="' + esc(g.email) + '">';
       more += "</div>";
       box.innerHTML = head + choice("rsvp-attend-" + i, "rsvp_attend_q", [["Yes", "rsvp_accept"], ["No", "rsvp_decline"]], g.attending, false) + more;
       box.querySelectorAll('input[name="rsvp-attend-' + i + '"]').forEach(function (r) {
@@ -2017,9 +2054,15 @@ details[open] > summary .faq-chevron {
           setMsg(partyErr, null);
         });
       });
+      var mealSel = box.querySelector('[data-field="meal"]');
+      if (mealSel) mealSel.addEventListener("change", function () {
+        var d = box.querySelector(".rsvp-meal-desc");
+        var m = meals.filter(function (x) { return x.value === mealSel.value; })[0];
+        if (m) { d.setAttribute("data-i18n", m.key + "_desc"); d.hidden = false; relang(); }
+        else { d.removeAttribute("data-i18n"); d.textContent = ""; d.hidden = true; }
+      });
       guestsBox.appendChild(box);
     });
-    emailInput.value = party.email || "";
     msgInput.value = party.message || "";
     already.hidden = !party.responded;
     setMsg(partyErr, null);
@@ -2059,12 +2102,15 @@ details[open] > summary .faq-chevron {
       var i = +box.dataset.index, g = current.guests[i];
       var att = box.querySelector('input[name="rsvp-attend-' + i + '"]:checked');
       if (!att) { problem = problem || "rsvp_err_choose"; return; }
-      var row = { key: g.key, attending: att.value, drinks: "", dietary: "", plusName: "" };
+      var row = { key: g.key, attending: att.value, drinks: "", dietary: "", plusName: "", meal: "", email: "" };
       if (att.value === "Yes") {
         anyYes = true;
         var d = box.querySelector('input[name="rsvp-drinks-' + i + '"]:checked');
         row.drinks = d ? d.value : "";
         row.dietary = (box.querySelector('[data-field="dietary"]') || {}).value || "";
+        row.email = ((box.querySelector('[data-field="email"]') || {}).value || "").trim();
+        var ms = box.querySelector('[data-field="meal"]');
+        if (ms) { row.meal = ms.value; if (!row.meal) problem = problem || "rsvp_err_meal"; }
         if (g.plus) {
           row.plusName = ((box.querySelector('[data-field="plusName"]') || {}).value || "").trim();
           if (!row.plusName) problem = problem || "rsvp_err_plus";
@@ -2080,7 +2126,7 @@ details[open] > summary .faq-chevron {
       method: "POST",
       body: JSON.stringify({
         lookupName: lookupName, partyId: current.id, guests: out,
-        email: emailInput.value.trim(), message: msgInput.value.trim()
+        message: msgInput.value.trim()
       })
     })
       .then(function (r) { return r.json(); })
