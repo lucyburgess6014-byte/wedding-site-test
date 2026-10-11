@@ -48,8 +48,16 @@ section {
 section[hidden] { display: none !important; }
 section.is-visible { display: block; }
 
+
+
+/* FAQ open left border accent */
+
 /* Nav active tab — subtle wisteria tint */
 .nav-links button.active { background: rgba(255,255,255,0.28); font-weight: 600; border-left: none; }
+
+/* Wisteria top-border on content cards */
+.content-card {
+}
 
 /* Lang toggle active in wisteria */
 .nav-lang-btn[aria-pressed="true"] { background: rgba(255,255,255,0.22); color: #fff; box-shadow: inset 0 0 0 1px rgba(201,162,39,0.5); }
@@ -133,20 +141,6 @@ h2 {
   color: var(--cream);
 }
 h2 img { width: 62px; height: 62px; object-fit: contain; }
-/* Section headings: words sit dead-center on the page; the swan hangs off to the left */
-section > h2 {
-  display: grid;
-  grid-template-columns: minmax(62px, 1fr) auto minmax(62px, 1fr);
-  column-gap: 0.6rem;
-  align-items: center;
-}
-section > h2 > img { grid-column: 1; justify-self: end; }
-section > h2 > span { grid-column: 2; text-align: center; }
-section > h2::after { content: ""; grid-column: 3; }
-@media (max-width: 480px) {
-  section > h2 { grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr); column-gap: 0.35rem; font-size: clamp(1.7rem, 7.6vw, 2rem); }
-  section > h2 > img { width: 40px; height: 40px; }
-}
 h2 img[src=""], h2 img:not([src]) { display: none; }
 
 .section-lead {
@@ -213,47 +207,6 @@ p, li { line-height: 1.7; }
   font-size: 0.95rem;
 }
 .website-btn:hover, .website-btn:focus-visible { background: var(--wine-deep); outline: none; }
-
-/* ── GROUP OUTINGS CARD ── */
-.group-card { background: var(--cream); color: var(--wine); border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
-.group-title { font-family: "Great Vibes", cursive; font-size: clamp(1.9rem, 6vw, 2.4rem); text-align: center; margin: 0 0 0.4rem; line-height: 1.2; color: var(--wine); }
-.group-intro { font-size: 0.95rem; line-height: 1.65; opacity: 0.85; text-align: center; margin: 0 0 1rem; }
-.group-dropdown { border: 1px solid rgba(75,0,31,0.2); border-radius: 12px; overflow: hidden; }
-.group-dropdown summary { list-style: none; cursor: pointer; padding: 13px 16px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1rem; color: var(--wine); }
-.group-dropdown summary::-webkit-details-marker { display: none; }
-.group-dropdown summary:hover { background: rgba(75,0,31,0.05); }
-.group-body { padding: 4px 14px 14px; border-top: 1px solid rgba(75,0,31,0.12); }
-.group-trip { margin-top: 12px; border-radius: 10px; overflow: hidden; background: rgba(75,0,31,0.05); border: 1px solid rgba(75,0,31,0.12); }
-#things .group-trip .things-activity-img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: cover; object-position: center; }
-.group-tab-text { display: flex; flex-direction: column; line-height: 1.25; }
-.group-tab-date { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
-.group-tab-sep { color: var(--gold); margin: 0 2px; }
-.group-tab-title { font-size: 1.08rem; font-weight: 600; }
-#things .group-trip .things-activity-body { padding: 0.9rem 1rem; }
-#things .group-trip .things-activity-body > strong { display: block; margin-bottom: 0.4rem; }
-#things .group-trip .things-activity-body p { margin: 0.4rem 0 0; }
-.group-note { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(201,162,39,0.08); border-radius: 0 8px 8px 0; font-size: 0.9rem; line-height: 1.6; }
-.group-note p { margin: 0 0 0.5rem; }
-.group-note p:last-child { margin-bottom: 0; }
-
-/* ── MAPS HINT DIVIDER ── */
-.rec-tap { display: flex; align-items: center; gap: 10px; margin: 1.75rem 0 1rem; color: var(--cream); }
-.rec-tap-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(201,162,39,0.7)); }
-.rec-tap-line:last-child { background: linear-gradient(to left, transparent, rgba(201,162,39,0.7)); }
-.rec-tap-pin { color: var(--gold); flex-shrink: 0; }
-.rec-tap-text { font-style: italic; font-size: clamp(0.88rem, 2.4vw, 1rem); letter-spacing: 0.03em; opacity: 0.9; text-align: center; }
-
-/* ── RECOMMENDATIONS CARD (intro + drop-downs in one card) ── */
-.rec-card { background: var(--cream); color: var(--wine); border-radius: 14px; padding: 1.25rem 1.5rem 1.4rem; margin-bottom: 1.25rem; text-align: center; }
-.rec-card .group-title { margin-bottom: 0.6rem; }
-.rec-card .rec-tap { color: var(--wine); margin: 1.1rem 0 0.9rem; }
-.rec-card .rec-tap-text { opacity: 0.75; }
-.rec-card .rec-dropdown { text-align: left; border: 1px solid rgba(75,0,31,0.2); margin-bottom: 0.55rem; }
-.rec-card .rec-dropdown:last-child { margin-bottom: 0; }
-.rec-card .rec-dropdown summary:hover { background: rgba(75,0,31,0.05); }
-.rec-card .rec-dropdown[open] summary { border-bottom: 1px solid rgba(75,0,31,0.12); }
-.rec-card .rec-dropdown .rec-body, .rec-card .rec-dropdown .rec-card-body { padding-top: 12px; }
-@media (max-width: 480px) { .rec-card { padding: 1.1rem 1rem 1.2rem; } }
 
 /* ── STORY ── */
 #story { max-width: 1040px; }
@@ -669,7 +622,6 @@ nav {
   font-size: 1rem;
   color: var(--wine);
   width: 100%;
-  position: relative;
 }
 .rec-dropdown summary::-webkit-details-marker { display: none; }
 .rec-dropdown .rec-body {
@@ -682,6 +634,9 @@ nav {
 }
 
 /* ── RECOMMENDATION DROPDOWN CHEVRON ── */
+.rec-dropdown summary {
+  position: relative;
+}
 .rec-chevron {
   margin-left: auto;
   flex-shrink: 0;
@@ -735,7 +690,7 @@ details[open] > summary .faq-chevron {
 
 <!-- Hero -->
 <section id="hero" class="hero is-visible" aria-label="Welcome">
-  <img id="hero-bg" src="hero.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  <img id="hero-bg" src="hero.jpg" alt="" aria-hidden="true" fetchpriority="high">
   <div class="hero-inner">
     <h1>Lucy &amp; Cosmin</h1>
     <div class="hero-details">
@@ -752,7 +707,7 @@ details[open] > summary .faq-chevron {
   <h2 id="story-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="nav_story">Our Story</span></h2>
   <p class="section-lead" data-i18n="story_lead">We are so happy you are part of this chapter.</p>  <div class="story-layout">
     <figure class="story-frame">
-      <img src="our-story.jpg" alt="Lucy and Cosmin" class="story-img" width="640" height="427" loading="lazy" decoding="async" data-i18n-alt="story_img_alt">
+      <img src="our-story.jpg" alt="Lucy and Cosmin" class="story-img" width="640" height="427" loading="eager" decoding="async" fetchpriority="high" data-i18n-alt="story_img_alt">
     </figure>
     <div class="content-card story-text">
       <p data-i18n="story_p1">Lucy and Cosmin met in the summer of 2022, when Lucy was finishing a project for her master's degree in Bucharest. Lucy was on the train back from a weekend in Bulgaria, when Cosmin happened to be sitting in her seat. After a train ride home together, they exchanged contact information, and what started as seeing each other in friend group settings, soon became planning dates for just the two of them. They spent the rest of that summer inseparable, and when Lucy went back home at the end of the summer, Cosmin promised to visit her in the United States.</p>
@@ -790,7 +745,6 @@ details[open] > summary .faq-chevron {
 <section id="schedule" hidden aria-labelledby="schedule-heading">
   <h2 id="schedule-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="sch_page_title">Weekend Schedule</span></h2>
   <p class="section-lead" data-i18n="schedule_lead">We can't wait to celebrate with you.</p>
-  <p class="section-lead" data-i18n="schedule_lead2">For optional group outings the days leading up to the wedding, check out our "Things To Do" tab!</p>
 
   <div class="schedule-box">
 
@@ -911,85 +865,72 @@ details[open] > summary .faq-chevron {
 <section id="things" hidden aria-labelledby="things-heading">
   <h2 id="things-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="nav_things">Things To Do</span></h2>
 
-  <div style="max-width:42rem; margin:0 auto; text-align:left;">
+  <!-- ============================================================
+       ACTIVITIES VISIBILITY FLAG
+       Change SHOW_ACTIVITIES to true when ready to make this public
+       ============================================================ -->
+  <script>var SHOW_ACTIVITIES = false;</script>
+  <div id="activities-block" style="display:none;">
 
-    <!-- ============================================================
-         GROUP OUTINGS VISIBILITY FLAG
-         Change SHOW_ACTIVITIES to false to hide the group outings card
-         ============================================================ -->
-    <script>var SHOW_ACTIVITIES = true;</script>
-    <div id="activities-block" class="group-card" style="display:none;">
-      <p class="group-title" data-i18n="things_group_title">Group Outing Opportunities</p>
-      <p class="group-intro" data-i18n="things_i1">Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!</p>
+    <div class="content-card">
+      <p data-i18n="things_i1">Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!</p>
+      <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
+      <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
+      <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
+    </div>
 
-      <details class="group-dropdown">
-        <summary>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="group-tab-text"><span class="group-tab-date"><span data-i18n="things_m14">Wednesday, July 14</span> <span class="group-tab-sep" aria-hidden="true">·</span> <span data-i18n="things_time14">8:45 am</span></span><span class="group-tab-title" data-i18n="things_t14">Cantacuzino Castle (Nevermore Academy)</span></span>
-          <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-        </summary>
-        <div class="group-body">
-
-    <div class="group-trip">
-      <img class="things-activity-img" src="img-cantacuzino-castle.jpg" alt="Cantacuzino Castle, Bușteni" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_cantacuzino">
+    <div class="content-card things-activity-card">
+      <img class="things-activity-img" src="things-peoples-palace.jpg" alt="Palace of the Parliament, Bucharest" width="800" height="450" loading="eager" decoding="async" data-i18n-alt="things_alt_parliament">
       <div class="things-activity-body">
-        <p data-i18n="things_m14_p1">There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.</p>
-        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
-        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
-        <p><a class="website-btn" href="https://docs.google.com/forms/d/1MeM6Op00cJr1NMJ6BzLcTV2JTGhjR8A9XdXqQDMXJ-Y/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
+        <strong data-i18n="things_m12">Monday, July 12</strong>
+        <p data-i18n="things_m12_p">To kick off the week, we will meet for a free walking tour of Bucharest at 3pm, meeting at Strada Lipscani 77, 030167. This tour will focus on the history of Bucharest, to allow people to gain more insight on important historical events/sites around the city!</p>
       </div>
     </div>
 
-          <div class="group-note">
-            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
-            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
-            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
-          </div>
-
-        </div>
-      </details>
-
-      <details class="group-dropdown" style="margin-top:10px;">
-        <summary>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4B001F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          <span class="group-tab-text"><span class="group-tab-date"><span data-i18n="things_m15">Thursday, July 15</span> <span class="group-tab-sep" aria-hidden="true">·</span> <span data-i18n="things_time15">6:45 am</span></span><span class="group-tab-title" data-i18n="things_t15">Bran Castle (Dracula Castle)</span></span>
-          <svg class="rec-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-        </summary>
-        <div class="group-body">
-
-    <div class="group-trip">
-      <img class="things-activity-img" src="things-bran-castle.jpg" alt="Bran Castle" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_bran">
+    <div class="content-card things-activity-card">
+      <img class="things-activity-img" src="things-bran-castle.jpg" alt="Bran Castle" width="800" height="450" loading="eager" decoding="async" data-i18n-alt="things_alt_bran">
       <div class="things-activity-body">
-        <p data-i18n="things_m15_p1">There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the "Dracula" castle).</p>
-        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
+        <strong data-i18n="things_m13">Tuesday, July 13</strong>
+        <p data-i18n="things_m13_p1">Private shuttle for a half-day exploring the Saxon/Transylvanian town of Brașov, and a half-day exploring Bran Castle (the "Dracula" castle).</p>
+        <p data-i18n="things_m13_p2">Shuttle departs from Bucharest and returns same day.</p>
         <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
-        <p><a class="website-btn" href="https://docs.google.com/forms/d/1zoO7gRj6t0aLO6z7fDqV1zUzI1pmml-Grqa1atY6-EU/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
+        <p><a class="website-btn" href="https://forms.gle/kit6CGPwQR2vGr3e6" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">Website</a></p>
       </div>
     </div>
 
-          <div class="group-note">
-            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
-            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
-            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
-          </div>
-
-        </div>
-      </details>
+    <div class="content-card things-activity-card">
+      <img class="things-activity-img" src="things-peles-castle.jpg" alt="Peleș Castle, Sinaia" width="800" height="450" loading="eager" decoding="async" data-i18n-alt="things_alt_peles">
+      <div class="things-activity-body">
+        <strong data-i18n="things_m14">Wednesday, July 14</strong>
+        <p data-i18n="things_m14_p1">We will be doing a shorter day trip to the mountain town of Sinaia, to see Peleș Castle. Because this trip is shorter, and involves less transfers, we will be taking the train.</p>
+        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
+        <p><a class="website-btn" href="https://forms.gle/vUeCwMeg4kGSDqpn9" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">Website</a></p>
+      </div>
     </div>
-    <script>if (SHOW_ACTIVITIES) document.getElementById('activities-block').style.display = '';</script>
+
+    <div class="content-card things-activity-card">
+      <img class="things-activity-img" src="things-therme.jpg" alt="Therme Bucharest" width="800" height="450" loading="eager" decoding="async" data-i18n-alt="things_alt_therme">
+      <div class="things-activity-body">
+        <strong data-i18n="things_m15">Thursday, July 15</strong>
+        <p data-i18n="things_m15_p1">We'll spend a relaxing afternoon and evening at Therme Bucharest. We'll depart after lunch at 1:00 PM.</p>
+        <p data-i18n="things_m15_p2">There's a local bus that goes to Therme—ask your hotel concierge if you'd like help with routes—but the fastest and most direct way is to use Uber, which is what we usually do.</p>
+        <p data-i18n-html="things_m15_p3">Buy tickets at the entrance or in advance on their website: <a href="https://www.therme.ro/" target="_blank" rel="noopener noreferrer">therme.ro</a>.</p>
+        <p data-i18n="things_m15_p4">Choose any package and duration you prefer. Please bring flip-flops to wear between pool areas; if you don't have a pair you can buy them on site.</p>
+      </div>
+    </div>
+
+  </div><!-- end activities-block -->
+  <script>if (SHOW_ACTIVITIES) document.getElementById('activities-block').style.display = '';</script>
+
+  <!-- Recommendations -->
+  <div style="max-width:42rem; margin:1.5rem auto 0; text-align:left;">
 
     <!-- Intro card -->
-    <div class="rec-card">
-      <p class="group-title" data-i18n="rec_title">General Recommendations</p>
+    <div style="background:var(--cream); border:none; border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.25rem; text-align:center; color:var(--wine);">
       <p style="font-size:clamp(1.1rem,3vw,1.3rem); font-weight:600; margin:0 0 0.6rem; line-height:1.4; font-family:'Cormorant Garamond',Georgia,serif; color:var(--wine);" data-i18n="things_sub">We know many of you are traveling a great distance to be at our wedding and we could not be more thankful!</p>
-      <p style="font-size:0.95rem; opacity:0.8; margin:0; line-height:1.65; color:var(--wine);" data-i18n-html="things_sub2">To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.</p>
-
-    <div class="rec-tap">
-      <span class="rec-tap-line" aria-hidden="true"></span>
-      <svg class="rec-tap-pin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      <span class="rec-tap-text" data-i18n="rec_tap">Tap any place to open in Google Maps</span>
-      <span class="rec-tap-line" aria-hidden="true"></span>
+      <p style="font-size:0.95rem; opacity:0.8; margin:0; line-height:1.65; color:var(--wine);" data-i18n-html="things_sub2">To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here. <strong>Please make sure to come back to this page in the future as well, as we have plans to put together some group activities the days leading up to the wedding!</strong></p>
     </div>
+    <p style="font-size:0.78rem; opacity:0.5; margin:0 0 0.85rem; text-align:center; letter-spacing:0.04em;" data-i18n="rec_tap">Tap any place to open in Google Maps</p>
 
     <details class="rec-dropdown">
       <summary>
@@ -997,7 +938,7 @@ details[open] > summary .faq-chevron {
       </summary>
       <div class="rec-body">
         <p style="font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.6;margin:0 0 8px;color:var(--wine);" data-i18n="rec_coffee">Coffee</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <a href="https://maps.google.com/?q=Ototo%20Coffee%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">Ototo <span style="opacity:0.6;font-size:0.8rem;">· Victoriei or Amzei location</span></a>
           <a href="https://maps.google.com/?q=Uzina%20cafe%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">Uzina</a>
           <a href="https://maps.google.com/?q=M60%20cafe%20Bucharest%20Bucharest" target="_blank" rel="noopener noreferrer" style="font-size:0.88rem;color:var(--wine);background:rgba(75,0,31,0.08);border:1px solid rgba(75,0,31,0.22);border-radius:999px;padding:4px 13px;text-decoration:none;display:inline-block;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.15)'" onmouseout="this.style.background='rgba(75,0,31,0.08)'">M60</a>
@@ -1076,7 +1017,7 @@ details[open] > summary .faq-chevron {
       </summary>
       <div class="rec-card-body">
         <a href="https://maps.google.com/?q=National+Museum+of+Art+Romania+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-royal-palace.jpg" alt="Royal Palace Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-royal-palace.jpg" alt="Royal Palace Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Royal Palace / National Museum of Art</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">A royal palace on Bucharest's main street that also houses an amazing art museum</p>
@@ -1084,7 +1025,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Cismigiu+Park+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-cismigiu.jpg" alt="Cișmigiu Park Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-cismigiu.jpg" alt="Cișmigiu Park Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Cișmigiu Park</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Rent row boats on the pond</p>
@@ -1092,7 +1033,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Palace+of+Parliament+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-palace-of-parliament.jpg" alt="Palace of Parliament Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-palace-of-parliament.jpg" alt="Palace of Parliament Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Palace of Parliament</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Second largest government building in the world</p>
@@ -1100,7 +1041,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Palatul+Primaverii+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-spring-palace.jpg" alt="Spring Palace Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-spring-palace.jpg" alt="Spring Palace Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">"Spring Palace"</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Ceaușescu's house</p>
@@ -1108,7 +1049,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Herastrau+Park+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-herastrau.jpg" alt="Herăstrău Park Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-herastrau.jpg" alt="Herăstrău Park Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Herăstrău Park</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">A large park around a lake in northern Bucharest with lots of restaurants around the lake to enjoy as well</p>
@@ -1116,7 +1057,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Old+Town+Lipscani+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-old-town.jpg" alt="Bucharest Old Town" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-old-town.jpg" alt="Bucharest Old Town" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Old Town</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Historic old town, filled with lots of shops, restaurants, and where lots of nightlife is</p>
@@ -1124,7 +1065,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Therme+Bucharest" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-therme.jpg" alt="Therme Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-therme.jpg" alt="Therme Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Therme</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Spa / water park</p>
@@ -1132,7 +1073,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Wiggle+Room+Bucharest+Str+C+A+Rosetti" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-wiggle-room.jpg" alt="Wiggle Room Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-wiggle-room.jpg" alt="Wiggle Room Bucharest" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Wiggle Room</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">For little ones</p>
@@ -1149,7 +1090,7 @@ details[open] > summary .faq-chevron {
       <div class="rec-card-body">
         <p style="font-size:0.98rem;opacity:0.8;margin:0 0 12px;line-height:1.6;color:var(--wine);" data-i18n-html="rec_excursions_sub">Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href="https://www.cfrcalatori.ro/en/" target="_blank" rel="noopener noreferrer" style="color:var(--wine);font-weight:600;">cfrcalatori.ro</a>.</p>
         <a href="https://maps.google.com/?q=Bran+Castle+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-bran-castle.jpg" alt="Bran Castle Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-bran-castle.jpg" alt="Bran Castle Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Bran Castle</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Dracula's Castle</p>
@@ -1157,7 +1098,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Peles+Castle+Sinaia+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-peles-castle.jpg" alt="Peles Castle Sinaia Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-peles-castle.jpg" alt="Peles Castle Sinaia Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Pelеș Castle</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Royal castle in the gorgeous town of Sinaia</p>
@@ -1165,7 +1106,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Cantacuzino+Castle+Busteni+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-cantacuzino-castle.jpg" alt="Cantacuzino Castle Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-cantacuzino-castle.jpg" alt="Cantacuzino Castle Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Cantacuzino Castle</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Where they filmed the Netflix show Wednesday</p>
@@ -1173,7 +1114,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Busteni+Cable+Car+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-busteni-cable-car.jpg" alt="Bucegi Mountains Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-busteni-cable-car.jpg" alt="Bucegi Mountains Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Bușteni Cable Car</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Takes you to the top of the Bucegi Mountains</p>
@@ -1181,7 +1122,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Transfagarasan+Road+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-transfagarasan.jpg" alt="Transfagarasan Road Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-transfagarasan.jpg" alt="Transfagarasan Road Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Transfăgărășan Road</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Romania's iconic mountain pass over the Făgăraș Mountains, where you can spot Romania's bear population</p>
@@ -1189,7 +1130,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Brasov+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-brasov.jpg" alt="Brasov Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-brasov.jpg" alt="Brasov Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Brașov</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Historic Saxon town</p>
@@ -1197,7 +1138,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Sighisoara+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-sighisoara.jpg" alt="Sighisoara Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-sighisoara.jpg" alt="Sighisoara Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Sighișoara</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">UNESCO World Heritage Site</p>
@@ -1205,7 +1146,7 @@ details[open] > summary .faq-chevron {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(75,0,31,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <a href="https://maps.google.com/?q=Constanta+Romania" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(75,0,31,0.05);border:1px solid rgba(75,0,31,0.15);border-radius:12px;margin-bottom:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='rgba(75,0,31,0.1)'" onmouseout="this.style.background='rgba(75,0,31,0.05)'">
-          <img src="img-constanta.jpg" alt="Constanta Black Sea Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy" decoding="async">
+          <img src="img-constanta.jpg" alt="Constanta Black Sea Romania" style="width:72px;height:72px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy">
           <div style="flex:1;min-width:0;">
             <p style="font-size:0.95rem;font-weight:600;color:var(--wine);margin:0 0 3px;font-family:inherit;">Constanța</p>
             <p style="font-size:0.82rem;color:rgba(75,0,31,0.65);margin:0;font-style:italic;">Romania's port city on the Black Sea where you can enjoy a beach holiday</p>
@@ -1214,7 +1155,6 @@ details[open] > summary .faq-chevron {
         </a>
       </div>
     </details>
-    </div><!-- end rec-card -->
 
   </div>
 
@@ -1255,7 +1195,7 @@ details[open] > summary .faq-chevron {
 
         <details style="border-bottom: 1px solid rgba(75,0,31,0.12);">
           <summary style="padding: 12px 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; font-size: 0.95rem; color: var(--wine);">
-            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">✈︎</span> Airport pick-up &amp; drop-off <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">✈︎</span> Airport pick-up &amp; drop-off <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron"><path d="M9 18l6-6-6-6"/></svg>
           </summary>
           <div style="padding: 10px 14px 14px; font-size: 0.92rem; line-height: 1.65; color: var(--wine); border-top: 1px solid rgba(75,0,31,0.1);">
             <p style="margin:0 0 0.5rem;" data-i18n="faq_a5b">Your hotel can arrange a shuttle or private transfer — the hotel where we reserved a room block can help coordinate this.</p>
@@ -1266,7 +1206,7 @@ details[open] > summary .faq-chevron {
 
         <details style="border-bottom: 1px solid rgba(75,0,31,0.12);">
           <summary style="padding: 12px 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; font-size: 0.95rem; color: var(--wine);">
-            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">✦︎</span> Uber <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">✦︎</span> Uber <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron"><path d="M9 18l6-6-6-6"/></svg>
           </summary>
           <div style="padding: 10px 14px 14px; font-size: 0.92rem; line-height: 1.65; color: var(--wine); border-top: 1px solid rgba(75,0,31,0.1);">
             <p style="margin:0;" data-i18n="faq_a5e">Uber is easy, reliable, and inexpensive for short trips around the city. It is best to have the app already downloaded and your payment already set up before you arrive in Bucharest.</p>
@@ -1275,7 +1215,7 @@ details[open] > summary .faq-chevron {
 
         <details style="border-bottom: 1px solid rgba(75,0,31,0.12);">
           <summary style="padding: 12px 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; font-size: 0.95rem; color: var(--wine);">
-            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">❧︎</span> Train <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">❧︎</span> Train <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron"><path d="M9 18l6-6-6-6"/></svg>
           </summary>
           <div style="padding: 10px 14px 14px; font-size: 0.92rem; line-height: 1.65; color: var(--wine); border-top: 1px solid rgba(75,0,31,0.1);">
             <p style="margin:0;" data-i18n-html="faq_a5h">If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara De Nord. To purchase train tickets, please use this website: <a href="https://www.cfrcalatori.ro/en/" target="_blank" rel="noopener noreferrer">cfrcalatori.ro</a></p>
@@ -1284,7 +1224,7 @@ details[open] > summary .faq-chevron {
 
         <details style="border-bottom: 1px solid rgba(75,0,31,0.12);">
           <summary style="padding: 12px 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; font-size: 0.95rem; color: var(--wine);">
-            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">⚜︎</span> Subway <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">⚜︎</span> Subway <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron"><path d="M9 18l6-6-6-6"/></svg>
           </summary>
           <div style="padding: 10px 14px 14px; font-size: 0.92rem; line-height: 1.65; color: var(--wine); border-top: 1px solid rgba(75,0,31,0.1);" data-i18n-html="faq_a5f">
             Bucharest's subway system is clean and efficient (operating 5:00 AM–11:00 PM) — most wedding activities are near Piața Romană or Piața Universității. See the metro map here: <a href="https://visitbucharest.today/bucharest-metro/" target="_blank" rel="noopener noreferrer">visitbucharest.today/bucharest-metro</a>
@@ -1293,7 +1233,7 @@ details[open] > summary .faq-chevron {
 
         <details>
           <summary style="padding: 12px 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; font-size: 0.95rem; color: var(--wine);">
-            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">❋︎</span> Walking <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            <span style="font-size:1rem;font-weight:700;color:#4B001F;font-family:Georgia,serif;flex-shrink:0;min-width:20px;text-align:center;font-variant-emoji:text;">❋︎</span> Walking <svg class="rec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron"><path d="M9 18l6-6-6-6"/></svg>
           </summary>
           <div style="padding: 10px 14px 14px; font-size: 0.92rem; line-height: 1.65; color: var(--wine); border-top: 1px solid rgba(75,0,31,0.1);" data-i18n="faq_a5g">
             The street that most of the wedding activities is set on, Calea Victoriei, is a very walkable area — you can easily walk to sites such as Old Town, Cișmigiu Park, and the Royal Palace, along with many cute stores, cafes, and restaurants.
@@ -1347,9 +1287,9 @@ details[open] > summary .faq-chevron {
   <h2 id="rsvp-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="nav_rsvp">RSVP</span></h2>
   <div style="max-width:36rem; margin:2rem auto; text-align:center;">
     <div class="content-card" style="text-align:center; padding:2rem 1.5rem;">
-      <div style="font-size:3.5rem; margin-bottom:1rem; opacity:0.7;">🔒</div>
-      <p style="font-size:1.3rem; font-weight:600; margin:0 0 0.5rem; color:var(--wine);" data-i18n="rsvp_soon">Coming Soon</p>
-      <p style="opacity:0.75; margin:0; font-size:1rem; color:var(--wine);" data-i18n="rsvp_soon_sub">RSVP will open here once invitations are sent. Please check back then!</p>
+      <p style="font-size:1.3rem; font-weight:600; margin:0 0 0.75rem; color:var(--wine);" data-i18n="rsvp_title">We hope you can join us!</p>
+      <p style="opacity:0.8; margin:0 0 1.5rem; font-size:1rem; color:var(--wine);" data-i18n="rsvp_body">Search for your name to find your invitation and let us know if you can make it. Please respond by the date on your invitation.</p>
+      <p style="margin:0;"><a class="website-btn" href="https://withjoy.com/lucy-and-cosmin/rsvp" target="_blank" rel="noopener noreferrer" data-i18n="rsvp_btn">RSVP</a></p>
     </div>
   </div>
 </section>
@@ -1373,47 +1313,55 @@ details[open] > summary .faq-chevron {
       story_p2: "True to his word, Cosmin visited in October, which also happened to be his first time in the United States. His first trip to the U.S. included exploring Little Rock, celebrating Halloween, and even catching a Mavericks–Jazz game in Dallas.",
       story_p3: "After a year of long distance, Lucy moved to Bucharest when she graduated from her master's program.",
       story_p4: "They spent the next two years living in Bucharest, discovering new favorite restaurants, going to the movies, taking weekend excursions, and visiting family in Eforie Sud and in the United States.",
+      story_p5_old: "hidden",
       story_p5: "After two years of living together in Bucharest, Lucy's job brought her back to the United States. They made sure to plan regular trips to see each other after she moved away, and it was during one of these visits, on a post-holiday trip to Paris, in the gardens at Versailles, Cosmin asked Lucy to marry him.",
       photos_lead: "A few favorites — click to enlarge.",
       photos_grid_aria: "Photo gallery",
       photos_credit: "Our engagement photos were done by the amazing Andreea Sali from Eforie Sud<br>\n    Instagram business account: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Enlarged photo", lightbox_prev: "Previous photo", lightbox_next: "Next photo",
       schedule_lead: "We can't wait to celebrate with you.",
-      schedule_lead2: "For optional group outings the days leading up to the wedding, check out our \"Things To Do\" tab!",
       sch_page_title: "Weekend Schedule",
       sch_fri: "Friday, July 16", sch_fri_welcome: "Welcome Drinks", sch_fri_time: "TBD",
+      sch_fri_p1: "Come join us for drinks the night before the wedding!", sch_fri_p2: "This will be an opportunity for more guests to mix and mingle before the big day!",
       sch_sat: "Saturday, July 17", sch_sat_cer: "Catholic Ceremony", sch_sat_church: "3:00 pm @ St. Joseph's Cathedral",
+      sch_sat_shuttle: "St. Joseph's Cathedral is located at Strada General Berthelot 19 — approximately a 10-minute walk from the InterContinental AthéNéE Palace. Please plan to arrive by 2:30 pm, about 30 minutes before the ceremony begins.",
       sch_sat_arrive: "Arrive by 2:30 pm",
       sch_sat_cock: "Cocktail Hour", sch_sat_cock_loc: "6:00 pm @ InterContinental AthéNéE Palace Bucharest — 1st floor Terrace", sch_sat_cock_p: "Canapés and refreshments will be served.",
-      sch_sat_rec: "Reception", sch_sat_rec_loc: "7:00 pm @ InterContinental AthéNéE Palace Bucharest — Diplomat Ballroom",
+      sch_sat_rec: "Reception", sch_sat_rec_loc: "7:00 pm @ InterContinental AthéNéE Palace Bucharest — Diplomat Ballroom", sch_sat_rec_p: "Enjoy a three course meal, cake cutting, and dancing the night away with us!",
       sch_sat_rec_theme: "Dinner and Dancing",
       sch_view_map: "View Map",
       travel_lead: "Bucharest Henri Coandă (OTP) is the main international airport, about 30–45 minutes from the city center by car or taxi.",
       travel_h2: "Travel & Lodging",
+      travel_stay: "<strong>Where to stay</strong> — Add 2–3 hotel suggestions near your venue or Old Town, with booking links if you have group rates.",
+      travel_get: "<strong>Getting around</strong> — Taxis and ride-hailing (e.g. Bolt) are widely used; the metro is useful for central sights.",
       things_sub: "We know many of you are traveling a great distance to be at our wedding and we could not be more thankful!",
-      things_sub2: "To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here.",
+      things_sub2: "To help make your stay as easy and enjoyable as possible, below is a list of some of our top recommendations of things to experience while you are here. <strong>Please make sure to come back to this page in the future as well, as we have plans to put together some group activities the days leading up to the wedding!</strong>",
       rec_eat: "Places to eat", rec_bars: "Bars and cocktail bars", rec_night: "Nightlife", rec_see: "Things to see and do", rec_excursions: "Excursions outside of Bucharest",
       rec_dinner: "Lunch / Dinner", rec_breakfast: "Breakfast", rec_dessert: "Dessert", rec_coffee: "Coffee", rec_beer_alley: "Beer Alley",
-      rec_title: "General Recommendations",
       rec_tap: "Tap any place to open in Google Maps",
-      rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
-      things_group_title: "Group Outing Opportunities",
+      rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.",
       things_i1: "Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!",
       things_i2: "Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.",
       things_i3: "The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.",
       things_i4: "You will be in charge of purchasing your own tickets specified, and managing your time at each place.",
-      things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
-      things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)", things_time14: "8:45 am",
-      things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
-      things_m15: "Thursday, July 15", things_t15: "Bran Castle (Dracula Castle)", things_time15: "6:45 am",
-      things_m15_p1: "There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the \u201cDracula\u201d castle).",
-      things_shuttle: "Shuttle departs from Bucharest and returns same day.",
-      things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "RSVP",
+      things_alt_parliament: "Palace of the Parliament, Bucharest", things_m12: "Monday, July 12",
+      things_m12_p: "To kick off the week, we will meet for a free walking tour of Bucharest at 3pm, meeting at Strada Lipscani 77, 030167. This tour will focus on the history of Bucharest, to allow people to gain more insight on important historical events/sites around the city!",
+      things_alt_bran: "Bran Castle", things_m13: "Tuesday, July 13",
+      things_m13_p1: "Private shuttle for a half-day exploring the Saxon/Transylvanian town of Brașov, and a half-day exploring Bran Castle (the \u201cDracula\u201d castle).", things_m13_p2: "Shuttle departs from Bucharest and returns same day.",
+      things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "Website",
+      things_alt_peles: "Peleș Castle, Sinaia", things_m14: "Wednesday, July 14",
+      things_m14_p1: "We will be doing a shorter day trip to the mountain town of Sinaia, to see Peleș Castle. Because this trip is shorter, and involves less transfers, we will be taking the train.",
+      things_alt_therme: "Therme Bucharest", things_m15: "Thursday, July 15",
+      things_m15_p1: "We'll spend a relaxing afternoon and evening at Therme Bucharest. We'll depart after lunch at 1:00 PM.",
+      things_m15_p2: "There's a local bus that goes to Therme—ask your hotel concierge if you'd like help with routes—but the fastest and most direct way is to use Uber, which is what we usually do.",
+      things_m15_p3: "Buy tickets at the entrance or in advance on their website: <a href=\"https://www.therme.ro/\" target=\"_blank\" rel=\"noopener noreferrer\">therme.ro</a>.",
+      things_m15_p4: "Choose any package and duration you prefer. Please bring flip-flops to wear between pool areas; if you don't have a pair you can buy them on site.",
       faq_q1: "What is the best way to get to Bucharest?", faq_a1: "<strong>Bucharest Henri Coandă International Airport (OTP)</strong> is the main airport to fly into.",
       faq_q2: "What is the dress code?", faq_a2: "Summer Formal — It will be very hot, so plan for suits/dresses/formal wear that will be comfortable!",
       faq_q3: "Will the wedding be indoors or outdoors?", faq_a3a: "Most everything will take place indoors!", faq_a3b: "The religious ceremony and main reception will be inside, with cocktail hour being outside on a terrace, weather permitting.",
       faq_q4: "What if I have a dietary restriction?", faq_a4: "When you RSVP you will have the option to mark any dietary restrictions you might have. We will do our best to accommodate all diets!",
       faq_q5: "What is the best way to get around Bucharest?",
+      faq_a5a: "We will provide a shuttle for transportation between the religious ceremony and reception.",
       faq_a5b: "For airport pick-up or drop-off, your hotel can arrange a shuttle or private transfer—the hotel where we reserved a room block can help coordinate this.",
       faq_a5c: "Uber is also an easy option and what we usually use to get to and from the airport.",
       faq_a5d: "There is a train that connects the airport to Bucharest's main station, Gara de Nord, but it's reportedly slow and I haven't tried it myself.",
@@ -1425,11 +1373,19 @@ details[open] > summary .faq-chevron {
       faq_q7: "What is the Romanian Currency/ Language", faq_a7a: "The Romanian currency is a leu.", faq_a7b: "1 dollar = 4.40 Lei", faq_a7c: "Many places do accept card payments, but it is advised to have some cash on hand.",
       faq_a7d: "The spoken language is Romanian.", faq_a7e: "You can easily get around with English in the city; less so the farther out of the city you venture.",
       faq_q8: "Any other tips and tricks?", faq_a8a: "Please keep in mind that this will be a very hot time of the year to be traveling in Europe/Romania. Many older buildings and trains do not have A/C, so I suggest having a hand fan/mini electronic fan.",
-      faq_a8b: "<strong>\"Apa plata\"</strong> is what to ask for if you want \"still\" water (non sparkling water).",
+      faq_a8b: "<strong>\"Apa plata\"</strong> is what to ask for if you want \"still\" water (non sparkling water).", faq_a8c: "Romanian food heavily consist of meat and pork, but Bucharest does offer many international restaurants that should accommodate dietary restrictions.",
       faq_a8d: "Please reach out to us if you do have any specific questions or concerns!! We are happy to help you prepare for such a big international journey.",
+      reg_lead: "Your presence is the best gift. If you would like to give something, we have registered at:",
+      reg_placeholder: "Replace this block with links to your registry (e.g. John Lewis, Zola, honeymoon fund). Example: <a href=\"#\">Registry link</a>",
       reg_soon: "Coming Soon",
       reg_soon_sub: "Our registry details will be available here soon. Check back later!",
+      rsvp_lead: "Please respond by the date on your invitation.",
+      rsvp_inst: "To collect RSVPs online, create a form in Google Forms (or Typeform, etc.), then use <strong>Send → &lt;&gt; Embed HTML</strong> and add an iframe here, for example:",
+      rsvp_email: "Until then, guests can reach you at <!-- TODO: your email --><a href=\"mailto:hello@example.com\">hello@example.com</a> (replace with your address).",
       rsvp_soon: "Coming Soon",
+      rsvp_title: "We hope you can join us!",
+      rsvp_body: "Search for your name to find your invitation and let us know if you can make it. Please respond by the date on your invitation.",
+      rsvp_btn: "RSVP",
       rsvp_soon_sub: "RSVP will open here once invitations are sent. Please check back then!",
       travel_roomblock_title: "Room blocks coming soon.",
       travel_roomblock_1: "We will have a room block at the hotel where the reception will take place, InterContinental AthéNéE Palace Bucharest, which will be made available at a later date.",
@@ -1454,41 +1410,49 @@ details[open] > summary .faq-chevron {
       photos_credit: "Fotografiile de logodnă au fost realizate de minunata Andreea Sali din Eforie Sud<br>\n    Cont Instagram business: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Fotografie mărită", lightbox_prev: "Fotografia anterioară", lightbox_next: "Fotografia următoare",
       schedule_lead: "Abia așteptăm să sărbătorim cu voi.",
-      schedule_lead2: "Pentru ieșirile opționale de grup din zilele dinaintea nunții, aruncați o privire în secțiunea \u201eActivități\u201d!",
       sch_page_title: "Programul weekendului",
       sch_fri: "Vineri, 16 iulie", sch_fri_welcome: "Welcome drinks", sch_fri_time: "TBD",
+      sch_fri_p1: "Vă invităm la o băutură în seara dinaintea nunții!", sch_fri_p2: "O ocazie bună ca mai mulți oaspeți să se cunoască înainte de marele eveniment!",
       sch_sat: "Sâmbătă, 17 iulie", sch_sat_cer: "Ceremonie religioasă catolică", sch_sat_church: "15:00 @ Catedrala Sfântul Iosif",
+      sch_sat_shuttle: "Catedrala Sfântul Iosif se află pe Strada General Berthelot 19 — aproximativ 10 minute de mers pe jos de la InterContinental AthéNéE Palace. Vă rugăm să ajungeți până la 14:30, cu aproximativ 30 de minute înainte de începerea ceremoniei.",
       sch_sat_arrive: "Ajungeți până la 14:30",
       sch_sat_cock: "Cocktail", sch_sat_cock_loc: "18:00 @ InterContinental AthéNéE Palace București — terasa etajului 1", sch_sat_cock_p: "Se vor servi canapele și răcoritoare.",
-      sch_sat_rec: "Recepție", sch_sat_rec_loc: "19:00 @ InterContinental AthéNéE Palace București — Sala Diplomat",
+      sch_sat_rec: "Recepție", sch_sat_rec_loc: "19:00 @ InterContinental AthéNéE Palace București — Sala Diplomat", sch_sat_rec_p: "Bucurați-vă de un meniu în trei feluri, tăierea tortului și dans până noaptea târziu alături de noi!",
       sch_sat_rec_theme: "Cină și dans",
       sch_view_map: "Vezi harta",
       travel_lead: "Aeroportul Internațional Henri Coandă București (OTP) este principalul aeroport internațional, la aproximativ 30–45 de minute de centrul orașului cu mașina sau taxiul.",
       travel_h2: "Călătorie și cazare",
+      travel_stay: "<strong>Blocuri de camere în curând.</strong> Vom rezerva un bloc de camere la hotelul unde va avea loc recepția, InterContinental AthéNéE Palace București, disponibil din septembrie. Vom avea de asemenea un al doilea bloc de camere la un hotel din apropierea centrului orașului.",
+      travel_get: "<strong>Deplasări</strong> — Taxiurile și aplicațiile de ride-sharing (ex. Bolt) sunt frecvente; metroul este util pentru obiectivele centrale.",
       things_sub: "Știm că mulți dintre voi călătoriți de departe pentru a fi la nunta noastră și nu putem fi mai recunoscători!",
-      things_sub2: "Pentru a vă face șederea cât mai ușoară și plăcută, mai jos găsiți o listă cu cele mai bune recomandări ale noastre de lucruri de experimentat în timp ce sunteți aici.",
+      things_sub2: "Pentru a vă face șederea cât mai ușoară și plăcută, mai jos găsiți o listă cu cele mai bune recomandări ale noastre de lucruri de experimentat în timp ce sunteți aici. <strong>Asigurați-vă că reveniți pe această pagină și în viitor, deoarece avem planuri să organizăm câteva activități de grup în zilele dinaintea nunții!</strong>",
       rec_eat: "Locuri de mâncare", rec_bars: "Baruri și cocktail baruri", rec_night: "Viața de noapte", rec_see: "Lucruri de văzut și de făcut", rec_excursions: "Excursii în afara Bucureștiului",
       rec_dinner: "Prânz / Cină", rec_breakfast: "Mic dejun", rec_dessert: "Desert", rec_coffee: "Cafea", rec_beer_alley: "Beer Alley",
-      rec_title: "Recomandări generale",
       rec_tap: "Apasă pe orice loc pentru a-l deschide în Google Maps",
-      rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
-      things_group_title: "Ieșiri de grup",
+      rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.",
       things_i1: "Mai jos găsiți activități de grup în săptămâna dinaintea nunții și cum vă puteți înscrie. Puteți participa la câte doriți — sau vizita aceste locuri în timpul vostru liber la București! Sunt recomandările noastre și sperăm să vă placă!",
       things_i2: "Notă: sunt ieșiri informale de grup, nu tururi ghidate. Activitatea oferă ocazia să fiți cu toții în același loc, fără ghid oficial; după sosire puteți explora singuri sau împreună cu grupul.",
       things_i3: "Scopul este să aveți un motiv să călătoriți împreună cu un grup mai mare și să vă cunoașteți înainte de nuntă.",
       things_i4: "Biletele menționate le achiziționați voi, iar timpul la fiecare loc îl gestionați voi.",
-      things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
-      things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)", things_time14: "8:45",
-      things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
-      things_m15: "Joi, 15 iulie", things_t15: "Castelul Bran (Castelul lui Dracula)", things_time15: "6:45",
-      things_m15_p1: "Vom organiza o excursie de o zi întreagă pentru a explora Castelul Peleș, orașul saxon/transilvănean Brașov și Castelul Bran (castelul \u201eDracula\u201d).",
-      things_shuttle: "Shuttle-ul pleacă din București și revine în aceeași zi.",
-      things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "RSVP",
+      things_alt_parliament: "Palatul Parlamentului, București", things_m12: "Luni, 12 iulie",
+      things_m12_p: "Deschidem săptămâna cu un tur pietonal gratuit al Bucureștiului la ora 15:00, punct de întâlnire Strada Lipscani 77, 030167. Turul se concentrează pe istoria Bucureștiului și pe evenimente/locuri importante din oraș!",
+      things_alt_bran: "Castelul Bran", things_m13: "Marți, 13 iulie",
+      things_m13_p1: "Shuttle privat pentru o jumătate de zi în Brașov (oraș saxon/transilvănean) și o jumătate de zi la Castelul Bran (\u201eDracula\u201d).",
+      things_m13_p2: "Shuttle-ul pleacă din București și revine în aceeași zi.",
+      things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "Formular",
+      things_alt_peles: "Castelul Peleș, Sinaia", things_m14: "Miercuri, 14 iulie",
+      things_m14_p1: "Excursie mai scurtă la munte, în Sinaia, la Castelul Peleș. Pentru mai puține transbordări folosim trenul.",
+      things_alt_therme: "Therme București", things_m15: "Joi, 15 iulie",
+      things_m15_p1: "După-amiază și seară relaxante la Therme București. Plecare după prânz la ora 13:00.",
+      things_m15_p2: "Există autobuz local spre Therme — întrebați la recepția hotelului pentru trasee — cel mai rapid este de obicei Uber, cum folosim și noi.",
+      things_m15_p3: "Biletele le puteți lua la intrare sau în avans pe site: <a href=\"https://www.therme.ro/\" target=\"_blank\" rel=\"noopener noreferrer\">therme.ro</a>.",
+      things_m15_p4: "Alegeți pachetul și durata dorite. Luați papuci de piscină pentru deplasarea între zone; dacă nu aveți, se pot cumpăra la fața locului.",
       faq_q1: "Care este cea mai bună modalitate de a ajunge la București?", faq_a1: "<strong>Aeroportul Internațional Henri Coandă București (OTP)</strong> este principalul aeroport pentru zboruri.",
       faq_q2: "Care este dress code-ul?", faq_a2: "Summer Formal — Va fi foarte cald, alegeți costume/rochii/ținută formală confortabilă!",
       faq_q3: "Nunta este în interior sau exterior?", faq_a3a: "Aproape totul va fi în interior!", faq_a3b: "Ceremonia religioasă și recepția vor fi înăuntru; cocktailul poate fi pe terasă, în funcție de vreme.",
       faq_q4: "Ce fac dacă am restricții alimentare?", faq_a4: "La RSVP veți putea indica restricțiile alimentare. Ne străduim să le respectăm pe toate!",
       faq_q5: "Cum mă deplasez prin București?",
+      faq_a5a: "Oferim shuttle între ceremonia religioasă și recepție.",
       faq_a5b: "Pentru transfer aeroport–hotel, hotelul poate organiza shuttle sau transfer privat — hotelul cu cameră blocată vă poate ajuta.",
       faq_a5c: "Uber este o opțiune simplă, pe care o folosim des și pentru aeroport.",
       faq_a5d: "Există tren între aeroport și Gara de Nord, dar este lent și nu l-am încercat personal.",
@@ -1502,9 +1466,17 @@ details[open] > summary .faq-chevron {
       faq_q8: "Alte sfaturi?", faq_a8a: "Vara poate fi foarte caldă; multe clădiri vechi și trenuri fără aer condiționat — luați un evantai sau un mini ventilator.",
       faq_a8b: "<strong>\u201eApă plată\u201e</strong> — așa cereți apă fără gaz, dacă nu doriți apă minerală.",
       faq_a8d: "Scrieți-ne dacă aveți întrebări — vă ajutăm cu plăcere să vă pregătiți pentru această călătorie!",
+      reg_lead: "În curând disponibil.",
+      reg_placeholder: "Detaliile listei de cadouri vor fi disponibile aici în curând. Reveniți mai târziu!",
       reg_soon: "În curând",
       reg_soon_sub: "Detaliile listei de cadouri vor fi disponibile aici în curând. Reveniți mai târziu!",
+      rsvp_lead: "În curând disponibil.",
+      rsvp_inst: "RSVP-ul va fi deschis odată ce invitațiile sunt trimise. Vă rugăm să reveniți atunci!",
+      rsvp_email: "",
       rsvp_soon: "În curând",
+      rsvp_title: "Sperăm să fiți alături de noi!",
+      rsvp_body: "Căutați-vă numele pentru a găsi invitația și spuneți-ne dacă veți putea veni. Vă rugăm să răspundeți până la data menționată în invitație.",
+      rsvp_btn: "Confirmă prezența",
       rsvp_soon_sub: "RSVP-ul va fi deschis odată ce invitațiile sunt trimise. Vă rugăm să reveniți atunci!",
       travel_roomblock_title: "Blocuri de camere în curând.",
       travel_roomblock_1: "Vom rezerva un bloc de camere la hotelul unde va avea loc recepția, InterContinental AthéNéE Palace București, care va fi disponibil la o dată ulterioară.",
@@ -1551,6 +1523,13 @@ details[open] > summary .faq-chevron {
         imgs[i].alt = prefix + (i + 1);
       }
     }
+    var lbImg = document.getElementById("lightbox-img");
+    if (lbImg && lbImg.src) {
+      var photos = grid ? grid.querySelectorAll("img") : [];
+      var idx = -1;
+      for (var j = 0; j < photos.length; j++) if (photos[j].dataset.full === lbImg.src || photos[j].src === lbImg.src) { idx = j; break; }
+      if (idx >= 0) lbImg.alt = (pack.photo_alt_prefix || I18N.en.photo_alt_prefix) + (idx + 1);
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -1593,17 +1572,6 @@ details[open] > summary .faq-chevron {
   var photosPerPage = 10;
   var totalPhotos = 30;
   var currentIndex = -1;
-  var pagerWired = false;
-  var preloaded = {};
-
-  // Download an image once and remember it, so nothing is fetched twice
-  function preload(src) {
-    if (!src || preloaded[src]) return;
-    preloaded[src] = true;
-    var im = new Image();
-    im.decoding = "async";
-    im.src = src;
-  }
 
   function getPhotoEls() {
     return Array.prototype.slice.call(photoGrid.querySelectorAll(".photo-cell img"));
@@ -1614,24 +1582,16 @@ details[open] > summary .faq-chevron {
     lightboxCount.textContent = total > 0 ? (i + 1) + " / " + total : "";
   }
 
-  // Load the next and previous full-size photos so arrowing through is instant
-  function preloadAdjacent(i) {
-    var photos = getPhotoEls();
-    if (!photos.length) return;
-    [i + 1, i - 1].forEach(function (n) {
-      var p = photos[(n + photos.length) % photos.length];
-      if (p) preload(p.dataset.full);
-    });
-  }
-
   function openLightboxAt(index) {
     const photos = getPhotoEls();
     if (photos.length === 0) return;
     currentIndex = ((index % photos.length) + photos.length) % photos.length;
     const img = photos[currentIndex];
+    const fullSrc = img.dataset.full;
     var lbFallback = typeof window.__weddingLightboxLabel === "string" ? window.__weddingLightboxLabel : "Enlarged photo";
 
-    lightboxImg.src = img.dataset.full;
+    // Show full-size directly — it's already in browser cache from backgroundPreload()
+    lightboxImg.src = fullSrc;
     lightboxImg.alt = img.alt || lbFallback;
     lightbox.classList.add("is-open");
     lightbox.hidden = false;
@@ -1659,21 +1619,22 @@ details[open] > summary .faq-chevron {
     var altPrefix = typeof window.__weddingPhotoAltPrefix === "string" ? window.__weddingPhotoAltPrefix : "Lucy and Cosmin — photo ";
     var start = (page - 1) * photosPerPage + 1;
     var end   = Math.min(start + photosPerPage - 1, totalPhotos);
-    var fulls = [];
 
     for (var i = start; i <= end; i++) {
       var cell = document.createElement("div");
       cell.className = "photo-cell";
 
       var img = document.createElement("img");
-      img.decoding     = "async";
-      img.onload = function () { this.classList.add("loaded"); };
+      img.src          = "thumbs/lucy-cosmin-" + i + ".jpg"; // tiny — loads instantly
       img.dataset.full = "lucy-cosmin-" + i + ".jpg";        // full-size for lightbox
       img.alt          = altPrefix + i;
-      img.src          = "thumbs/lucy-cosmin-" + i + ".jpg"; // small thumbnail
-      if (img.complete && img.naturalWidth > 0) img.classList.add("loaded");
+      img.decoding     = "async";
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add("loaded");
+      } else {
+        img.onload = function() { this.classList.add("loaded"); };
+      }
 
-      fulls.push(img.dataset.full);
       cell.appendChild(img);
       photoGrid.appendChild(cell);
     }
@@ -1683,29 +1644,22 @@ details[open] > summary .faq-chevron {
       btn.classList.toggle("active", parseInt(btn.dataset.page) === page);
     });
 
-    // After the thumbnails show, quietly fetch this page's full-size photos
-    // (only the 10 on screen — not all 30) so the lightbox opens instantly
-    setTimeout(function () {
-      fulls.forEach(function (src, k) {
-        setTimeout(function () { preload(src); }, k * 120);
-      });
-    }, 800);
-
     // Preload next page thumbs silently
     var nextPage = page + 1;
     if (nextPage <= Math.ceil(totalPhotos / photosPerPage)) {
       var ns = (nextPage - 1) * photosPerPage + 1;
       var ne = Math.min(ns + photosPerPage - 1, totalPhotos);
       setTimeout(function() {
-        for (var j = ns; j <= ne; j++) preload("thumbs/lucy-cosmin-" + j + ".jpg");
+        for (var j = ns; j <= ne; j++) {
+          var p = new Image();
+          p.src = "thumbs/lucy-cosmin-" + j + ".jpg";
+        }
       }, 300);
     }
   }
 
   function buildPhotoGallery() {
     buildPage(currentPage);
-    if (pagerWired) return;       // attach page-button clicks only once
-    pagerWired = true;
     document.querySelectorAll(".page-btn").forEach(function(btn) {
       btn.addEventListener("click", function() {
         currentPage = parseInt(this.dataset.page);
@@ -1713,6 +1667,30 @@ details[open] > summary .faq-chevron {
         window.scrollTo(0, 0);
       });
     });
+  }
+
+  // Preload: all thumbs fire immediately (they're tiny ~40KB each = ~1.2MB total)
+  // Full-size fires after 2s so hero loads first
+  function backgroundPreload() {
+    // Phase 1: all 30 thumbs right away — no delay, no stagger
+    for (var i = 1; i <= totalPhotos; i++) {
+      (function(n) {
+        var t = new Image();
+        t.src = "thumbs/lucy-cosmin-" + n + ".jpg";
+      })(i);
+    }
+
+    // Phase 2: full-size images after 2s, staggered so hero isn't competing
+    setTimeout(function() {
+      for (var i = 1; i <= totalPhotos; i++) {
+        (function(n) {
+          setTimeout(function() {
+            var f = new Image();
+            f.src = "lucy-cosmin-" + n + ".jpg";
+          }, (n - 1) * 80);
+        })(i);
+      }
+    }, 2000);
   }
 
   function showSection(id) {
@@ -1734,20 +1712,14 @@ details[open] > summary .faq-chevron {
     btn.addEventListener("click", function () {
       showSection(btn.dataset.target);
     });
-    // Start fetching Photos thumbnails as soon as a guest hovers/touches the tab
-    if (btn.dataset.target === "photos") {
-      var warm = function () {
-        for (var t = 1; t <= photosPerPage; t++) preload("thumbs/lucy-cosmin-" + t + ".jpg");
-      };
-      btn.addEventListener("mouseenter", warm, { once: true });
-      btn.addEventListener("touchstart", warm, { once: true, passive: true });
-    }
   });
 
   sections.forEach(function (sec) {
     const on = sec.classList.contains("is-visible");
     sec.hidden = !on;
   });
+
+  backgroundPreload();
 
   photoGrid.addEventListener("click", function (e) {
     var cell = e.target.closest(".photo-cell");
