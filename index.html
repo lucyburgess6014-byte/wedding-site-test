@@ -310,6 +310,13 @@ select.rsvp-input { appearance: none; -webkit-appearance: none; padding-right: 3
   .rsvp-actions { justify-content: center; }
 }
 
+/* ── SCHEDULE CALLOUT (Things To Do note) ── */
+.sched-callout { display: block; text-align: center; max-width: 34rem; margin: 0 auto 1.75rem; padding: 14px 18px; background: var(--cream); color: var(--wine); border: 1.5px solid var(--gold); border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
+.sched-callout-icon { flex-shrink: 0; color: var(--gold); }
+.sched-callout p { margin: 0; font-size: clamp(0.98rem, 2.8vw, 1.08rem); line-height: 1.5; font-weight: 600; }
+.sched-callout a { color: var(--wine); text-decoration: none; cursor: pointer; }
+.sched-callout a:hover, .sched-callout a:focus-visible { color: var(--wine-deep); text-decoration: underline; text-underline-offset: 3px; outline: none; }
+
 /* ── STORY ── */
 #story { max-width: 1040px; }
 .story-layout {
@@ -845,7 +852,9 @@ details[open] > summary .faq-chevron {
 <section id="schedule" hidden aria-labelledby="schedule-heading">
   <h2 id="schedule-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="sch_page_title">Weekend Schedule</span></h2>
   <p class="section-lead" data-i18n="schedule_lead">We can't wait to celebrate with you.</p>
-  <p class="section-lead" data-i18n="schedule_lead2">For optional group outings the days leading up to the wedding, check out our "Things To Do" tab!</p>
+  <div class="sched-callout" role="note">
+    <p data-i18n-html="schedule_lead2">Please check out our <a href="#things" data-goto="things">"Things To Do"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!</p>
+  </div>
 
   <div class="schedule-box">
 
@@ -1492,7 +1501,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Our engagement photos were done by the amazing Andreea Sali from Eforie Sud<br>\n    Instagram business account: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Enlarged photo", lightbox_prev: "Previous photo", lightbox_next: "Next photo",
       schedule_lead: "We can't wait to celebrate with you.",
-      schedule_lead2: "For optional group outings the days leading up to the wedding, check out our \"Things To Do\" tab!",
+      schedule_lead2: "Please check out our <a href=\"#things\" data-goto=\"things\">\"Things To Do\"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!",
       sch_page_title: "Weekend Schedule",
       sch_fri: "Friday, July 16", sch_fri_welcome: "Welcome Drinks", sch_fri_time: "TBD",
       sch_sat: "Saturday, July 17", sch_sat_cer: "Catholic Ceremony", sch_sat_church: "3:00 pm @ St. Joseph's Cathedral",
@@ -1598,7 +1607,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Fotografiile de logodnă au fost realizate de minunata Andreea Sali din Eforie Sud<br>\n    Cont Instagram business: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Fotografie mărită", lightbox_prev: "Fotografia anterioară", lightbox_next: "Fotografia următoare",
       schedule_lead: "Abia așteptăm să sărbătorim cu voi.",
-      schedule_lead2: "Pentru ieșirile opționale de grup din zilele dinaintea nunții, aruncați o privire în secțiunea \u201eActivități\u201d!",
+      schedule_lead2: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile opționale de grup de miercuri, 14 iulie, și joi, 15 iulie!",
       sch_page_title: "Programul weekendului",
       sch_fri: "Vineri, 16 iulie", sch_fri_welcome: "Welcome drinks", sch_fri_time: "TBD",
       sch_sat: "Sâmbătă, 17 iulie", sch_sat_cer: "Ceremonie religioasă catolică", sch_sat_church: "15:00 @ Catedrala Sfântul Iosif",
@@ -1955,6 +1964,14 @@ details[open] > summary .faq-chevron {
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowRight") goNext();
     if (e.key === "ArrowLeft") goPrev();
+  });
+
+  // Links like <a data-goto="things"> switch to that tab
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-goto]");
+    if (!a) return;
+    e.preventDefault();
+    showSection(a.getAttribute("data-goto"));
   });
 
   // Close menu when tapping outside on mobile
