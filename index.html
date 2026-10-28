@@ -241,9 +241,6 @@ p, li { line-height: 1.7; }
 #things .group-trip .things-activity-body { padding: 0.9rem 1rem; }
 #things .group-trip .things-activity-body > strong { display: block; margin-bottom: 0.4rem; }
 #things .group-trip .things-activity-body p { margin: 0.4rem 0 0; }
-.group-note { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--gold); background: rgba(201,162,39,0.08); border-radius: 0 8px 8px 0; font-size: 0.9rem; line-height: 1.6; }
-.group-note p { margin: 0 0 0.5rem; }
-.group-note p:last-child { margin-bottom: 0; }
 
 /* ── MAPS HINT DIVIDER ── */
 .rec-tap { display: flex; align-items: center; gap: 10px; margin: 1.75rem 0 1rem; color: var(--cream); }
@@ -309,13 +306,6 @@ select.rsvp-input { appearance: none; -webkit-appearance: none; padding-right: 3
   .rsvp-find-row .rsvp-btn, .rsvp-actions .rsvp-btn { width: 100%; }
   .rsvp-actions { justify-content: center; }
 }
-
-/* ── SCHEDULE CALLOUT (Things To Do note) ── */
-.sched-callout { display: block; text-align: center; max-width: 34rem; margin: 0 auto 1.75rem; padding: 14px 18px; background: var(--cream); color: var(--wine); border: 1.5px solid var(--gold); border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
-.sched-callout-icon { flex-shrink: 0; color: var(--gold); }
-.sched-callout p { margin: 0; font-size: clamp(0.98rem, 2.8vw, 1.08rem); line-height: 1.5; font-weight: 600; }
-.sched-callout a { color: var(--wine); text-decoration: none; cursor: pointer; }
-.sched-callout a:hover, .sched-callout a:focus-visible { color: var(--wine-deep); text-decoration: underline; text-underline-offset: 3px; outline: none; }
 
 /* ── STORY ── */
 #story { max-width: 1040px; }
@@ -576,6 +566,32 @@ details[open] .faq-question::after { content: "−"; }
   transition: background 0.15s;
 }
 .sched-map-btn:hover, .sched-map-btn:focus-visible { background: rgba(75,0,31,0.08); outline: none; }
+
+/* ── GROUP OUTINGS CALLOUT (same card shape as the schedule cards) ── */
+/* Same width as the other cards, just more compact */
+.sched-card.sched-callout { margin-bottom: 1.75rem; padding: 1rem 1.25rem 1.05rem; }
+.sched-callout .sched-icon { width: 34px; height: 34px; margin-bottom: 0.35rem; }
+.sched-callout .sched-title { font-size: clamp(0.95rem, 3vw, 1.1rem); margin-bottom: 0.45rem; }
+.sched-callout-text {
+  margin: 0;
+  font-size: clamp(0.92rem, 2.5vw, 1rem);
+  line-height: 1.5;
+}
+.sched-callout-text a {
+  color: var(--wine);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.sched-callout-text a:hover, .sched-callout-text a:focus-visible {
+  color: var(--wine-deep);
+  text-decoration-color: var(--wine);
+  outline: none;
+}
 
 /* ── NAV ── */
 nav {
@@ -852,8 +868,29 @@ details[open] > summary .faq-chevron {
 <section id="schedule" hidden aria-labelledby="schedule-heading">
   <h2 id="schedule-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="sch_page_title">Weekend Schedule</span></h2>
   <p class="section-lead" data-i18n="schedule_lead">We can't wait to celebrate with you.</p>
-  <div class="sched-callout" role="note">
-    <p data-i18n-html="schedule_lead2">Please check out our <a href="#things" data-goto="things">"Things To Do"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!</p>
+
+  <div class="sched-card sched-callout" role="note">
+    <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- left & right towers with pointed roofs -->
+      <path d="M8,50 L8,22 L18,22 L18,50"/>
+      <path d="M7,22 L13,10 L19,22"/>
+      <path d="M38,50 L38,22 L48,22 L48,50"/>
+      <path d="M37,22 L43,10 L49,22"/>
+      <!-- central keep with battlements -->
+      <path d="M18,50 L18,28 L21,28 L21,25 L25,25 L25,28 L31,28 L31,25 L35,25 L35,28 L38,28 L38,50"/>
+      <!-- flags -->
+      <line x1="13" y1="10" x2="13" y2="5"/>
+      <path d="M13,5 L17,6.5 L13,8"/>
+      <line x1="43" y1="10" x2="43" y2="5"/>
+      <path d="M43,5 L47,6.5 L43,8"/>
+      <!-- arched door and windows -->
+      <path d="M24,50 L24,42 A4,4 0 0 1 32,42 L32,50"/>
+      <line x1="13" y1="30" x2="13" y2="34"/>
+      <line x1="43" y1="30" x2="43" y2="34"/>
+      <line x1="4" y1="50" x2="52" y2="50"/>
+    </svg>
+    <p class="sched-title" data-i18n="sch_outings_title">Optional Group Outings</p>
+    <p class="sched-callout-text" data-i18n-html="schedule_lead2">Please check out our <a href="#things" data-goto="things">"Things To Do"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!</p>
   </div>
 
   <div class="schedule-box">
@@ -1004,12 +1041,6 @@ details[open] > summary .faq-chevron {
       </div>
     </div>
 
-          <div class="group-note">
-            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
-            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
-            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
-          </div>
-
         </div>
       </details>
 
@@ -1030,12 +1061,6 @@ details[open] > summary .faq-chevron {
         <p><a class="website-btn" href="https://docs.google.com/forms/d/1zoO7gRj6t0aLO6z7fDqV1zUzI1pmml-Grqa1atY6-EU/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
       </div>
     </div>
-
-          <div class="group-note">
-            <p data-i18n="things_i2">Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.</p>
-            <p data-i18n="things_i3">The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.</p>
-            <p data-i18n="things_i4">You will be in charge of purchasing your own tickets specified, and managing your time at each place.</p>
-          </div>
 
         </div>
       </details>
@@ -1501,6 +1526,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Our engagement photos were done by the amazing Andreea Sali from Eforie Sud<br>\n    Instagram business account: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Enlarged photo", lightbox_prev: "Previous photo", lightbox_next: "Next photo",
       schedule_lead: "We can't wait to celebrate with you.",
+      sch_outings_title: "Optional Group Outings",
       schedule_lead2: "Please check out our <a href=\"#things\" data-goto=\"things\">\"Things To Do\"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!",
       sch_page_title: "Weekend Schedule",
       sch_fri: "Friday, July 16", sch_fri_welcome: "Welcome Drinks", sch_fri_time: "TBD",
@@ -1521,9 +1547,6 @@ details[open] > summary .faq-chevron {
       rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Group Outing Opportunities",
       things_i1: "Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You're welcome to join any number of activities — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!",
-      things_i2: "Please note: These are informal group outings rather than guided tours. The specified activity will provide an opportunity to have everyone at the same outing, but there will not be a formal tour leader; once we arrive you're free to explore independently or stick with the group.",
-      things_i3: "The purpose of these activities is more for people to have a reason to travel with a larger group, and get the chance to mix and mingle leading up to the wedding.",
-      things_i4: "You will be in charge of purchasing your own tickets specified, and managing your time at each place.",
       things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
       things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)", things_time14: "8:45 am",
       things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
@@ -1607,6 +1630,7 @@ details[open] > summary .faq-chevron {
       photos_credit: "Fotografiile de logodnă au fost realizate de minunata Andreea Sali din Eforie Sud<br>\n    Cont Instagram business: <strong>as.momentcolor</strong><br>\n    <a href=\"https://www.fotografi-cameramani.ro/andreea-sali_6974\" target=\"_blank\" rel=\"noopener noreferrer\">fotografi-cameramani.ro/andreea-sali_6974</a>",
       lightbox_label: "Fotografie mărită", lightbox_prev: "Fotografia anterioară", lightbox_next: "Fotografia următoare",
       schedule_lead: "Abia așteptăm să sărbătorim cu voi.",
+      sch_outings_title: "Ieșiri de grup opționale",
       schedule_lead2: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile opționale de grup de miercuri, 14 iulie, și joi, 15 iulie!",
       sch_page_title: "Programul weekendului",
       sch_fri: "Vineri, 16 iulie", sch_fri_welcome: "Welcome drinks", sch_fri_time: "TBD",
@@ -1627,9 +1651,6 @@ details[open] > summary .faq-chevron {
       rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Ieșiri de grup",
       things_i1: "Mai jos găsiți activități de grup în săptămâna dinaintea nunții și cum vă puteți înscrie. Puteți participa la câte doriți — sau vizita aceste locuri în timpul vostru liber la București! Sunt recomandările noastre și sperăm să vă placă!",
-      things_i2: "Notă: sunt ieșiri informale de grup, nu tururi ghidate. Activitatea oferă ocazia să fiți cu toții în același loc, fără ghid oficial; după sosire puteți explora singuri sau împreună cu grupul.",
-      things_i3: "Scopul este să aveți un motiv să călătoriți împreună cu un grup mai mare și să vă cunoașteți înainte de nuntă.",
-      things_i4: "Biletele menționate le achiziționați voi, iar timpul la fiecare loc îl gestionați voi.",
       things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
       things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)", things_time14: "8:45",
       things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
