@@ -597,6 +597,17 @@ details[open] .faq-question::after { content: "−"; }
   outline: none;
 }
 
+/* ── SCHEDULE: AT A GLANCE ── */
+.sched-glance { max-width: 32rem; margin: 0 auto 1.75rem; background: var(--cream); color: var(--wine); border-radius: 12px; padding: 1.1rem 1.25rem 0.9rem; text-align: left; }
+.sched-glance .g-head { text-align: center; font-family: Georgia, serif; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.85rem; margin: 0 0 0.6rem; }
+.sched-glance .g-day { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--wine); opacity: 0.6; margin: 0.9rem 0 0.15rem; font-weight: 700; }
+.sched-glance .g-day::after { content: ""; flex: 1; height: 1px; background: rgba(75,0,31,0.35); }
+.sched-glance a { display: flex; justify-content: space-between; gap: 12px; padding: 0.5rem 0.2rem; border-bottom: 1px solid rgba(75,0,31,0.12); color: var(--wine); text-decoration: none; font-size: 1.02rem; }
+.sched-glance a:last-child { border-bottom: none; }
+.sched-glance a:hover, .sched-glance a:focus-visible { background: rgba(75,0,31,0.05); outline: none; }
+.sched-glance .g-time { font-family: Georgia, serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; white-space: nowrap; align-self: center; }
+.sched-card { scroll-margin-top: calc(var(--nav-h) + 16px); }
+
 /* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
@@ -873,11 +884,24 @@ details[open] > summary .faq-chevron {
   <h2 id="schedule-heading"><img src="swan.png" alt="" width="62" height="62" loading="lazy"><span data-i18n="sch_page_title">Weekend Schedule</span></h2>
   <p class="section-lead" data-i18n="schedule_lead">We can't wait to celebrate with you.</p>
 
+    <div class="sched-glance">
+      <p class="g-head" data-i18n="glance_title">At a Glance</p>
+      <p class="g-day" data-i18n="sch_fri">Friday, July 16</p>
+      <a href="#c-drinks" data-scroll="c-drinks"><span data-i18n="sch_fri_welcome">Welcome Drinks</span><span class="g-time" data-i18n="glance_t_drinks">TBD</span></a>
+      <a href="#c-streets" data-scroll="c-streets"><span data-i18n="os_title">Open Streets Weekend</span><span class="g-time" data-i18n="glance_t_os">*10am – 10pm</span></a>
+      <p class="g-day" data-i18n="sch_sat">Saturday, July 17</p>
+      <a href="#c-cer" data-scroll="c-cer"><span data-i18n="sch_sat_cer">Catholic Ceremony</span><span class="g-time" data-i18n="glance_t_cer">3:00 pm</span></a>
+      <a href="#c-cock" data-scroll="c-cock"><span data-i18n="sch_sat_cock">Cocktail Hour</span><span class="g-time" data-i18n="glance_t_cock">6:00 pm</span></a>
+      <a href="#c-rec" data-scroll="c-rec"><span data-i18n="sch_sat_rec">Reception</span><span class="g-time" data-i18n="glance_t_rec">7:00 pm</span></a>
+      <p class="g-day" data-i18n="glance_out_day">Wednesday &amp; Thursday, July 14–15</p>
+      <a href="#c-out" data-scroll="c-out"><span data-i18n="sch_outings_title">Optional Group Outings</span><span class="g-time" data-i18n="glance_t_out">See details</span></a>
+  </div>
+
   <div class="schedule-box">
 
     <p class="sched-day-label" data-i18n="sch_fri">Friday, July 16</p>
 
-    <div class="sched-card">
+    <div id="c-drinks" class="sched-card">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <g transform="translate(19,30) rotate(18)">
           <path d="M-6,-18 L6,-18 L2,10 L-2,10 Z"/>
@@ -899,7 +923,7 @@ details[open] > summary .faq-chevron {
       <p class="sched-detail tbd" data-i18n="sch_fri_time">TBD</p>
     </div>
 
-    <div class="sched-card sched-open-streets">
+    <div id="c-streets" class="sched-card sched-open-streets">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <line x1="28" y1="22" x2="28" y2="49"/>
         <path d="M24,49 L32,49 L31,46 L25,46 Z"/>
@@ -921,7 +945,7 @@ details[open] > summary .faq-chevron {
 
     <p class="sched-day-label" data-i18n="sch_sat">Saturday, July 17</p>
 
-    <div class="sched-card">
+    <div id="c-cer" class="sched-card">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true">
         <polygon points="12,30 28,16 44,30"/>
         <rect x="12" y="30" width="32" height="24"/>
@@ -944,7 +968,7 @@ details[open] > summary .faq-chevron {
       <a class="sched-map-btn" href="https://maps.google.com/?q=Saint+Joseph+Catholic+Cathedral,+Strada+General+Berthelot+19,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
     </div>
 
-    <div class="sched-card">
+    <div id="c-cock" class="sched-card">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M14,10 L42,10 L28,28 Z"/>
         <line x1="28" y1="28" x2="28" y2="42"/>
@@ -958,7 +982,7 @@ details[open] > summary .faq-chevron {
       <a class="sched-map-btn" href="https://maps.google.com/?q=InterContinental+AthéNéE+Palace,+Strada+Episcopiei+1-3,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
     </div>
 
-    <div class="sched-card">
+    <div id="c-rec" class="sched-card">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
         <rect x="12" y="34" width="32" height="14"/>
         <rect x="19" y="22" width="18" height="12"/>
@@ -973,7 +997,7 @@ details[open] > summary .faq-chevron {
       <a class="sched-map-btn" href="https://maps.google.com/?q=InterContinental+AthéNéE+Palace,+Strada+Episcopiei+1-3,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
     </div>
 
-    <div class="sched-card sched-callout" role="note">
+    <div id="c-out" class="sched-card sched-callout" role="note">
       <svg class="sched-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <!-- left & right towers with pointed roofs -->
         <path d="M8,50 L8,22 L18,22 L18,50"/>
@@ -1045,7 +1069,7 @@ details[open] > summary .faq-chevron {
     <script>var SHOW_ACTIVITIES = true;</script>
     <div id="activities-block" class="group-card" style="display:none;">
       <p class="group-title" data-i18n="things_group_title">Group Outing Opportunities</p>
-      <p class="group-intro" data-i18n="things_i1">Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You’re welcome to join either activity — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!</p>
+      <p class="group-intro" data-i18n="things_i1">Two optional day trips the week before the wedding. Join either one, or visit these spots on your own time!</p>
 
       <details class="group-dropdown">
         <summary>
@@ -1058,9 +1082,9 @@ details[open] > summary .faq-chevron {
     <div class="group-trip">
       <img class="things-activity-img" src="img-cantacuzino-castle.jpg" alt="Cantacuzino Castle, Bușteni" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_cantacuzino">
       <div class="things-activity-body">
-        <p data-i18n="things_m14_p1">There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.</p>
-        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
-        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
+        <p data-i18n="things_m14_p1">A day trip to Bușteni to see Cantacuzino Castle (filming site of Netflix’s Wednesday) and ride the cable car up the Bucegi Mountains.</p>
+        <p data-i18n="things_shuttle">Round-trip shuttle from Bucharest.</p>
+        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, RSVP here:</p>
         <p><a class="website-btn" href="https://docs.google.com/forms/d/1MeM6Op00cJr1NMJ6BzLcTV2JTGhjR8A9XdXqQDMXJ-Y/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
       </div>
     </div>
@@ -1079,9 +1103,9 @@ details[open] > summary .faq-chevron {
     <div class="group-trip">
       <img class="things-activity-img" src="things-bran-castle.jpg" alt="Bran Castle" width="800" height="450" loading="lazy" decoding="async" data-i18n-alt="things_alt_bran">
       <div class="things-activity-body">
-        <p data-i18n="things_m15_p1">There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the "Dracula" castle).</p>
-        <p data-i18n="things_shuttle">Shuttle departs from Bucharest and returns same day.</p>
-        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, please RSVP by clicking here:</p>
+        <p data-i18n="things_m15_p1">A full-day trip to Peleș Castle, the Saxon town of Brașov, and Bran Castle (“Dracula’s Castle”).</p>
+        <p data-i18n="things_shuttle">Round-trip shuttle from Bucharest.</p>
+        <p style="margin-top:0.75rem;" data-i18n="things_rsvp_line">To join, RSVP here:</p>
         <p><a class="website-btn" href="https://docs.google.com/forms/d/1zoO7gRj6t0aLO6z7fDqV1zUzI1pmml-Grqa1atY6-EU/viewform" target="_blank" rel="noopener noreferrer" data-i18n="things_btn">RSVP</a></p>
       </div>
     </div>
@@ -1553,6 +1577,8 @@ details[open] > summary .faq-chevron {
       sch_outings_title: "Optional Group Outings",
       schedule_lead2: "Please check out our <a href=\"#things\" data-goto=\"things\">\"Things To Do\"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!",
       sch_page_title: "Weekend Schedule",
+      glance_title: "At a Glance", glance_out_day: "Wednesday & Thursday, July 14–15",
+      glance_t_drinks: "TBD", glance_t_os: "*10am – 10pm", glance_t_cer: "3:00 pm", glance_t_cock: "6:00 pm", glance_t_rec: "7:00 pm", glance_t_out: "See details",
       os_title: "Open Streets Weekend",
       os_hours: "Calea Victoriei · *10am - 10pm",
       os_vary: "* time can vary",
@@ -1575,14 +1601,14 @@ details[open] > summary .faq-chevron {
       rec_tap: "Tap any place to open in Google Maps",
       rec_excursions_sub: "Some of these are easy day trips from the city, while others are more of an adventure that are worth renting a car or turning into an overnight journey. If you are planning on visiting sites outside of Bucharest, you can take the train from the main station, Gara de Nord. To purchase train tickets, please use this website: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Group Outing Opportunities",
-      things_i1: "Below is a list of group activities available the week before the wedding, plus instructions on how to join each one. You’re welcome to join either activity — or visit these places on your own time while in Bucharest! These are our top recommendations and we hope you enjoy them!",
+      things_i1: "Two optional day trips the week before the wedding. Join either one, or visit these spots on your own time!",
       things_alt_cantacuzino: "Cantacuzino Castle, Bușteni", things_alt_bran: "Bran Castle",
       things_m14: "Wednesday, July 14", things_t14: "Cantacuzino Castle (Nevermore Academy)", things_time14: "8:45 am",
-      things_m14_p1: "There will be an organized day trip to the mountain town of Bușteni, to see Cantacuzino Castle (where they filmed the Netflix show Wednesday) and to take the mountain tram to the top of the Bucegi Mountains.",
+      things_m14_p1: "A day trip to Bușteni to see Cantacuzino Castle (filming site of Netflix’s Wednesday) and ride the cable car up the Bucegi Mountains.",
       things_m15: "Thursday, July 15", things_t15: "Bran Castle (Dracula Castle)", things_time15: "6:45 am",
-      things_m15_p1: "There will be an organized day trip for a full day exploring Peleș Castle, the Saxon/Transylvanian town of Brașov, and Bran Castle (the \u201cDracula\u201d castle).",
-      things_shuttle: "Shuttle departs from Bucharest and returns same day.",
-      things_rsvp_line: "To join, please RSVP by clicking here:", things_btn: "RSVP",
+      things_m15_p1: "A full-day trip to Peleș Castle, the Saxon town of Brașov, and Bran Castle (“Dracula’s Castle”).",
+      things_shuttle: "Round-trip shuttle from Bucharest.",
+      things_rsvp_line: "To join, RSVP here:", things_btn: "RSVP",
       faq_q1: "What is the best way to get to Bucharest?", faq_a1: "<strong>Bucharest Henri Coandă International Airport (OTP)</strong> is the main airport to fly into.",
       faq_q2: "What is the dress code?", faq_a2: "Summer Formal — It will be very hot, so plan for suits/dresses/formal wear that will be comfortable!",
       faq_q3: "Will the wedding be indoors or outdoors?", faq_a3a: "Most everything will take place indoors!", faq_a3b: "The religious ceremony and main reception will be inside, with cocktail hour being outside on a terrace, weather permitting.",
@@ -1662,6 +1688,8 @@ details[open] > summary .faq-chevron {
       sch_outings_title: "Ieșiri de grup opționale",
       schedule_lead2: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile opționale de grup de miercuri, 14 iulie, și joi, 15 iulie!",
       sch_page_title: "Programul weekendului",
+      glance_title: "Pe scurt", glance_out_day: "Miercuri și joi, 14–15 iulie",
+      glance_t_drinks: "TBD", glance_t_os: "*10:00 – 22:00", glance_t_cer: "15:00", glance_t_cock: "18:00", glance_t_rec: "19:00", glance_t_out: "Vezi detalii",
       os_title: "Weekend Străzi Deschise",
       os_hours: "Calea Victoriei · *10:00 - 22:00",
       os_vary: "* programul poate varia",
@@ -1684,14 +1712,14 @@ details[open] > summary .faq-chevron {
       rec_tap: "Apasă pe orice loc pentru a-l deschide în Google Maps",
       rec_excursions_sub: "Unele dintre acestea sunt excursii de o zi ușor de făcut din oraș, în timp ce altele sunt mai aventuroase și merită să închiriați o mașină sau să le transformați într-o călătorie de câteva zile. Dacă planificați vizite în afara Bucureștiului, puteți lua trenul din Gara de Nord. Pentru bilete, accesați: <a href=\"https://www.cfrcalatori.ro/en/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--wine);font-weight:600;\">cfrcalatori.ro</a>.", 
       things_group_title: "Ieșiri de grup",
-      things_i1: "Mai jos găsiți activități de grup în săptămâna dinaintea nunții și cum vă puteți înscrie. Puteți participa la oricare dintre cele două activități — sau puteți vizita aceste locuri în timpul vostru liber la București! Sunt recomandările noastre și sperăm să vă placă!",
+      things_i1: "Două excursii opționale de o zi în săptămâna dinaintea nunții. Alăturați-vă oricăreia sau vizitați aceste locuri pe cont propriu!",
       things_alt_cantacuzino: "Castelul Cantacuzino, Bușteni", things_alt_bran: "Castelul Bran",
       things_m14: "Miercuri, 14 iulie", things_t14: "Castelul Cantacuzino (Academia Nevermore)", things_time14: "8:45",
-      things_m14_p1: "Vom organiza o excursie de o zi în orașul de munte Bușteni, pentru a vizita Castelul Cantacuzino (unde s-a filmat serialul Netflix Wednesday) și pentru a urca cu telecabina până în vârful Munților Bucegi.",
+      things_m14_p1: "Excursie de o zi la Bușteni: Castelul Cantacuzino (unde s-a filmat serialul Wednesday de pe Netflix) și telecabina până în Munții Bucegi.",
       things_m15: "Joi, 15 iulie", things_t15: "Castelul Bran (Castelul lui Dracula)", things_time15: "6:45",
-      things_m15_p1: "Vom organiza o excursie de o zi întreagă pentru a explora Castelul Peleș, orașul saxon/transilvănean Brașov și Castelul Bran (castelul \u201eDracula\u201d).",
-      things_shuttle: "Shuttle-ul pleacă din București și revine în aceeași zi.",
-      things_rsvp_line: "Pentru participare, confirmați prin formularul de aici:", things_btn: "RSVP",
+      things_m15_p1: "Excursie de o zi întreagă: Castelul Peleș, orașul săsesc Brașov și Castelul Bran („Castelul lui Dracula”).",
+      things_shuttle: "Transport dus-întors din București.",
+      things_rsvp_line: "Pentru a participa, confirmați aici:", things_btn: "RSVP",
       faq_q1: "Care este cea mai bună modalitate de a ajunge la București?", faq_a1: "<strong>Aeroportul Internațional Henri Coandă București (OTP)</strong> este principalul aeroport pentru zboruri.",
       faq_q2: "Care este dress code-ul?", faq_a2: "Summer Formal — Va fi foarte cald, alegeți costume/rochii/ținută formală confortabilă!",
       faq_q3: "Nunta este în interior sau exterior?", faq_a3a: "Aproape totul va fi în interior!", faq_a3b: "Ceremonia religioasă și recepția vor fi înăuntru; cocktailul poate fi pe terasă, în funcție de vreme.",
@@ -2019,6 +2047,16 @@ details[open] > summary .faq-chevron {
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowRight") goNext();
     if (e.key === "ArrowLeft") goPrev();
+  });
+
+  // "At a Glance" rows scroll down to their card
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-scroll]");
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute("data-scroll"));
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Links like <a data-goto="things"> switch to that tab
