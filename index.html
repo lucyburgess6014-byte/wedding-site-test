@@ -637,6 +637,7 @@ details[open] .faq-question::after { content: "−"; }
 .tl-icon { width: 34px; height: 34px; flex-shrink: 0; color: var(--wine); }
 .tl-ev > :not(.tl-name) { margin-left: 46px; }
 .tl-time { font-family: Georgia, serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin: 0.15rem 0 0.25rem; }
+.tl-addr { font-family: Georgia, serif; font-style: italic; font-size: 0.68rem; letter-spacing: 0.06em; opacity: 0.6; margin: 0 0 0.35rem; }
 .tl-desc { margin: 0; font-size: 1.02rem; line-height: 1.55; }
 .tl-note { font-style: italic; opacity: 0.85; margin-top: 0.35rem; }
 .tl-desc a { color: var(--wine); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
@@ -960,7 +961,7 @@ details[open] > summary .faq-chevron {
         <line x1="4" y1="50" x2="52" y2="50"/>
       </svg><span data-i18n="sch_outings_title">Optional Group Outings</span></p>
           <p class="tl-time" data-i18n="tl_out_sub">Day trips from Bucharest</p>
-          <p class="tl-desc" data-i18n-html="tl_out_desc">Check out our <a href="#things" data-goto="things">“Things To Do”</a> tab for the Cantacuzino Castle and Bran Castle trips.</p>
+          <p class="tl-desc" data-i18n-html="tl_out_desc">Check out our <a href="#things" data-goto="things">“Things To Do”</a> tab for optional group outings the days leading up to the wedding.</p>
         </div>
         <img class="tl-photo tl-photo-inline" src="sched-peles.jpg" alt="Peleș Castle" data-i18n-alt="tl_alt_peles" loading="lazy" decoding="async" style="object-position:center;">
 
@@ -984,7 +985,7 @@ details[open] > summary .faq-chevron {
         </g>
       </svg><span data-i18n="sch_fri_welcome">Welcome Drinks</span></p>
           <p class="tl-time" data-i18n="tl_drinks_time">Time &amp; place TBD</p>
-          <p class="tl-desc" data-i18n="tl_drinks_desc">Come say hello and kick off the weekend with us.</p>
+          <p class="tl-desc" data-i18n="tl_drinks_desc">Come say hello and kick off the weekend with us!</p>
         </div>
         <div class="tl-ev">
           <p class="tl-name"><svg class="tl-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1024,6 +1025,7 @@ details[open] > summary .faq-chevron {
         <circle cx="28" cy="39" r="7" stroke-width="0.8"/>
       </svg><span data-i18n="sch_sat_cer">Catholic Ceremony</span></p>
           <p class="tl-time" data-i18n="sch_sat_church">3:00 pm @ St. Joseph's Cathedral</p>
+          <p class="tl-addr">Strada General H. M. Berthelot 19, București</p>
           <p class="tl-desc" data-i18n="sch_sat_arrive">Arrive by 2:30 pm</p>
           <a class="tl-map" href="https://maps.google.com/?q=Saint+Joseph+Catholic+Cathedral,+Strada+General+Berthelot+19,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
         </div>
@@ -1035,6 +1037,7 @@ details[open] > summary .faq-chevron {
         <circle cx="34" cy="14" r="2" fill="currentColor" stroke="none"/>
       </svg><span data-i18n="sch_sat_cock">Cocktail Hour</span></p>
           <p class="tl-time" data-i18n="sch_sat_cock_loc">6:00 pm @ InterContinental AthéNéE Palace Bucharest — 1st floor Terrace</p>
+          <p class="tl-addr">Strada Episcopiei 1-3, București</p>
           <p class="tl-desc" data-i18n="sch_sat_cock_p">Canapés and refreshments will be served.</p>
           <a class="tl-map" href="https://maps.google.com/?q=InterContinental+AthéNéE+Palace,+Strada+Episcopiei+1-3,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
         </div>
@@ -1047,6 +1050,7 @@ details[open] > summary .faq-chevron {
         <circle cx="28" cy="17" r="2" fill="currentColor" stroke="none"/>
       </svg><span data-i18n="sch_sat_rec">Reception</span></p>
           <p class="tl-time" data-i18n="sch_sat_rec_loc">7:00 pm @ InterContinental AthéNéE Palace Bucharest — Diplomat Ballroom</p>
+          <p class="tl-addr">Strada Episcopiei 1-3, București</p>
           <p class="tl-desc" data-i18n="sch_sat_rec_theme">Dinner and Dancing</p>
           <a class="tl-map" href="https://maps.google.com/?q=InterContinental+AthéNéE+Palace,+Strada+Episcopiei+1-3,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
         </div>
@@ -1629,8 +1633,8 @@ details[open] > summary .faq-chevron {
       schedule_lead2: "Please check out our <a href=\"#things\" data-goto=\"things\">\"Things To Do\"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!",
       sch_page_title: "Weekend Schedule",
       tl_title: "Timeline & Events", tl_out_sub: "Day trips from Bucharest",
-      tl_out_desc: "Check out our <a href=\"#things\" data-goto=\"things\">\u201cThings To Do\u201d</a> tab for the Cantacuzino Castle and Bran Castle trips.",
-      tl_drinks_time: "Time & place TBD", tl_drinks_desc: "Come say hello and kick off the weekend with us.",
+      tl_out_desc: "Check out our <a href=\"#things\" data-goto=\"things\">\u201cThings To Do\u201d</a> tab for optional group outings the days leading up to the wedding.",
+      tl_drinks_time: "Time & place TBD", tl_drinks_desc: "Come say hello and kick off the weekend with us!",
       tl_alt_peles: "Peleș Castle", tl_alt_calea: "Calea Victoriei during Open Streets", tl_alt_ic: "InterContinental Athénée Palace Bucharest",
       glance_title: "At a Glance", glance_out_day: "Wednesday & Thursday, July 14–15",
       glance_t_drinks: "TBD", glance_t_os: "*10am – 10pm", glance_t_cer: "3:00 pm", glance_t_cock: "6:00 pm", glance_t_rec: "7:00 pm", glance_t_out: "See details",
@@ -1750,8 +1754,8 @@ details[open] > summary .faq-chevron {
       schedule_lead2: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile opționale de grup de miercuri, 14 iulie, și joi, 15 iulie!",
       sch_page_title: "Programul weekendului",
       tl_title: "Program și evenimente", tl_out_sub: "Excursii de o zi din București",
-      tl_out_desc: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru excursiile la Castelul Cantacuzino și Castelul Bran.",
-      tl_drinks_time: "Ora și locul: TBD", tl_drinks_desc: "Veniți să ne salutați și să dăm startul weekendului împreună.",
+      tl_out_desc: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile de grup opționale din zilele dinaintea nunții.",
+      tl_drinks_time: "Ora și locul: TBD", tl_drinks_desc: "Veniți să ne salutați și să dăm startul weekendului împreună!",
       tl_alt_peles: "Castelul Peleș", tl_alt_calea: "Calea Victoriei în timpul Străzilor Deschise", tl_alt_ic: "InterContinental Athénée Palace București",
       glance_title: "Pe scurt", glance_out_day: "Miercuri și joi, 14–15 iulie",
       glance_t_drinks: "TBD", glance_t_os: "*10:00 – 22:00", glance_t_cer: "15:00", glance_t_cock: "18:00", glance_t_rec: "19:00", glance_t_out: "Vezi detalii",
