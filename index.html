@@ -639,6 +639,9 @@ details[open] .faq-question::after { content: "−"; }
 .tl-ev > :not(.tl-name) { margin-left: 46px; }
 .tl-time { font-family: Georgia, serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin: 0.15rem 0 0.25rem; }
 .tl-addr { font-family: Georgia, serif; font-style: italic; font-size: 0.68rem; letter-spacing: 0.06em; opacity: 0.6; margin: 0 0 0.35rem; }
+.tl-walk { display: flex; align-items: center; gap: 12px; margin: 0.9rem 0 0; padding: 0.55rem 0.8rem 0.55rem 0; border-top: 1px dashed rgba(75,0,31,0.25); border-bottom: 1px dashed rgba(75,0,31,0.25); }
+.tl-walk p { margin: 0; font-style: italic; font-size: 0.98rem; line-height: 1.45; opacity: 0.85; }
+.tl-walk-icon { opacity: 0.75; }
 .tl-desc { margin: 0; font-size: 1.02rem; line-height: 1.55; }
 .tl-note { font-style: italic; opacity: 0.85; margin-top: 0.35rem; }
 .tl-desc a { color: var(--wine); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
@@ -1030,6 +1033,10 @@ details[open] > summary .faq-chevron {
           <p class="tl-desc" data-i18n="sch_sat_arrive">Arrive by 2:30 pm</p>
           <a class="tl-map" href="https://maps.google.com/?q=Saint+Joseph+Catholic+Cathedral,+Strada+General+Berthelot+19,+Bucharest" target="_blank" rel="noopener noreferrer" data-i18n="sch_view_map">View Map</a>
         </div>
+        <div class="tl-walk">
+          <svg class="tl-icon tl-walk-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="4"/><path d="M28,18 L24,32 L30,38 L32,50"/><path d="M24,32 L18,48"/><path d="M27,22 L20,28 L17,34"/><path d="M28,21 L35,28 L41,29"/></svg>
+          <p data-i18n="tl_walk">The cathedral and the InterContinental are a short walk apart, about 10 minutes along Calea Victoriei.</p>
+        </div>
         <div class="tl-ev">
           <p class="tl-name"><svg class="tl-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M14,10 L42,10 L28,28 Z"/>
@@ -1064,13 +1071,13 @@ details[open] > summary .faq-chevron {
     <p style="font-size:0.85rem; opacity:0.7; margin:0 0 0.6rem; letter-spacing:0.06em; text-transform:uppercase; text-align:center;">Locations on the map</p>
     <div style="border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.15);">
       <iframe
-        title="Wedding locations in Bucharest"
+        title="Walking route from St. Joseph's Cathedral to the InterContinental Athénée Palace"
         width="100%"
         height="420"
         style="border:0; display:block;"
         loading="lazy"
         allowfullscreen
-        src="https://www.google.com/maps?q=InterContinental+Athenee+Palace+Bucharest,+Strada+Episcopiei+1-3&output=embed">
+        src="https://maps.google.com/maps?saddr=Catedrala+Sf%C3%A2ntul+Iosif,+Strada+General+Berthelot+19,+Bucure%C8%99ti&amp;daddr=InterContinental+Ath%C3%A9n%C3%A9e+Palace,+Strada+Episcopiei+1-3,+Bucure%C8%99ti&amp;dirflg=w&amp;output=embed">
       </iframe>
     </div>
     <!-- Individual map links -->
@@ -1633,6 +1640,7 @@ details[open] > summary .faq-chevron {
       sch_outings_title: "Optional Group Outings",
       schedule_lead2: "Please check out our <a href=\"#things\" data-goto=\"things\">\"Things To Do\"</a> tab to see optional group outings for Wednesday, July 14 and Thursday, July 15!",
       sch_page_title: "Weekend Schedule",
+      tl_walk: "The cathedral and the InterContinental are a short walk apart, about 10 minutes along Calea Victoriei.",
       tl_title: "Timeline & Events", tl_out_sub: "Day trips from Bucharest",
       tl_out_desc: "Check out our <a href=\"#things\" data-goto=\"things\">\u201cThings To Do\u201d</a> tab for optional group outings the days leading up to the wedding.",
       tl_drinks_time: "Time & place TBD", tl_drinks_desc: "Come say hello and kick off the weekend with us!",
@@ -1754,6 +1762,7 @@ details[open] > summary .faq-chevron {
       sch_outings_title: "Ieșiri de grup opționale",
       schedule_lead2: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile opționale de grup de miercuri, 14 iulie, și joi, 15 iulie!",
       sch_page_title: "Programul weekendului",
+      tl_walk: "Catedrala și InterContinental sunt la câțiva pași una de alta, la aproximativ 10 minute de mers pe jos pe Calea Victoriei.",
       tl_title: "Program și evenimente", tl_out_sub: "Excursii de o zi din București",
       tl_out_desc: "Aruncați o privire în secțiunea <a href=\"#things\" data-goto=\"things\">\u201eActivități\u201d</a> pentru ieșirile de grup opționale din zilele dinaintea nunții.",
       tl_drinks_time: "Ora și locul: TBD", tl_drinks_desc: "Veniți să ne salutați și să dăm startul weekendului împreună!",
