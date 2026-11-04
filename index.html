@@ -626,7 +626,8 @@ details[open] .faq-question::after { content: "−"; }
 /* ── SCHEDULE: timeline panel + photos ── */
 #schedule { max-width: 1120px; }
 .tl-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; text-align: left; }
-.tl-photos { display: grid; gap: 22px; align-self: center; }
+.tl-photos { display: grid; gap: 22px; align-self: stretch; grid-template-rows: repeat(3, 1fr); }
+.tl-photos .tl-photo { aspect-ratio: auto; height: 100%; min-height: 0; }
 .tl-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; background: rgba(255,255,255,0.06); }
 .tl-photo-inline { display: none; }
 .tl-panel { background: var(--cream); color: var(--wine); border-radius: 12px; padding: 2rem 2.2rem 1.6rem; }
